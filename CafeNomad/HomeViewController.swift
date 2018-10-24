@@ -69,7 +69,12 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             } else {
                 segueCity.cityName = cityTextField.text
             }
+            segueCity.shopwifi = wifiCount
+            segueCity.shopSeat = seatCount
+            segueCity.shopLimit = limitBool
+            segueCity.shopSocket = socketBool
         }
+        
     }
     
     //MARK: UIPickerView Delegation
@@ -92,6 +97,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBAction func wifiSilderAction(_ sender: UISlider) {
         var a = Int(wifiSilder.value)
         var b = Double(a) * 0.5
+        wifiCount = b
         wifiSilder.value = Float(a)
         wifiNumber.text = String(b)
     }
@@ -99,6 +105,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBAction func seatSilderAction(_ sender: UISlider) {
         var a = Int(seatsSilder.value)
         var b = Double(a) * 0.5
+        seatCount = b
         seatsSilder.value = Float(a)
         seatsNumber.text = String(b)
     }
@@ -118,5 +125,25 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             socketBool = false
         }
     }
+    
+    @IBAction func limitAction(_ sender: UISwitch) {
+        if limitTime.isOn == true {
+            limitBool = true
+        } else {
+            limitBool = false
+        }
+    }
+    
+    @IBAction func socketBoolAction(_ sender: UISwitch) {
+        if socket.isOn == true {
+            socketBool = true
+        } else {
+            socketBool = false
+        }
+    }
+    
+    
+    
+    
     
 }

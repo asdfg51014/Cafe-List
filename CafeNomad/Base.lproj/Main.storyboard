@@ -341,6 +341,7 @@
                                                 <color key="onTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="thumbTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 <connections>
+                                                    <action selector="limitAction:" destination="63l-Ul-7G6" eventType="valueChanged" id="yT4-Aa-Vrd"/>
                                                     <action selector="limitTimeAction:" destination="63l-Ul-7G6" eventType="valueChanged" id="COe-Sd-Z9U"/>
                                                 </connections>
                                             </switch>
@@ -366,7 +367,8 @@
                                                 <color key="onTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="thumbTintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                 <connections>
-                                                    <action selector="socketAction:" destination="63l-Ul-7G6" eventType="valueChanged" id="b1C-kx-dD0"/>
+                                                    <action selector="socketAction:" destination="63l-Ul-7G6" eventType="valueChanged" id="z7s-Ad-2Zz"/>
+                                                    <action selector="socketBoolAction:" destination="63l-Ul-7G6" eventType="valueChanged" id="7mH-AC-80m"/>
                                                 </connections>
                                             </switch>
                                         </subviews>
