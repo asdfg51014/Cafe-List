@@ -6,8 +6,8 @@ struct CafeAPI: Decodable {
     let id: String
     let name: String
     let city: String
-    let wifi: Float
-    let seat: Float
+    let wifi: Double
+    let seat: Double
     let quiet: Float
     let tasty: Float
     let cheap: Float

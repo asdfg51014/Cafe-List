@@ -20,7 +20,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     let citys = [String](arrayLiteral: "All", "Taipei", "Keelung", "Taoyuan", "Hsinchu", "Miaoli", "Taichung", "Nantou", "Changhua", "Yunlin", "Chiayi", "Tainan", "Kaohsiung", "Pingtung", "Yilan", "Hualien", "Taitung", "Penghu", "Lienchiang")
 
-    @IBOutlet var backGroungImage: UIImageView!
+//    @IBOutlet var backGroungImage: UIImageView!
     @IBOutlet var cityTextField: UITextField!
     @IBOutlet var viewcontroller: UIView!
     @IBOutlet var wifiNumber: UILabel!

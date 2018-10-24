@@ -12,10 +12,12 @@ struct CallAPI {
     
     
     
-    static func callApi(call: @escaping ([CafeAPI]) -> Void) {
+    static func callApi(city: String ,call: @escaping ([CafeAPI]) -> Void) {
         
         var callCafeApi = [CafeAPI]()
-        let urlObj = URL(string: "https://cafenomad.tw/api/v1.2/cafes")
+        let c = city.lowercased()
+        
+        let urlObj = URL(string: "https://cafenomad.tw/api/v1.2/cafes/" + c)
         
         let task = URLSession.shared.dataTask(with: urlObj!) { (data, response, error) in
             guard let getData = data else { return }

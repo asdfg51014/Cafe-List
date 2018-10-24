@@ -3,7 +3,7 @@
 //  CafeNomad
 //
 //  Created by Albert on 2018/10/23.
-//  Copyright © 2018 Albert.C. All rights reserved.
+//  Copyright © 2018 Avarrt.C. All rights rvarrved.
 //
 
 import UIKit
@@ -13,6 +13,8 @@ class CafeTableViewController: UITableViewController {
     var a: Int?
     
     var cafeShop: [CafeAPI] = []
+    
+    var showCafeShop: [CafeAPI] = []
     
     var cityName: String?
     
@@ -27,48 +29,54 @@ class CafeTableViewController: UITableViewController {
     
     
     
-    let firstURL = "https://cafenomad.tw/api/v1.2/cafes/"
-    
-    
-    func callApi(call: @escaping ([CafeAPI]) -> Void) {
-        let city = cityName?.lowercased()
-        print(city)
-        var callCafeApi = [CafeAPI]()
-        print(city)
-        let urlObj = URL(string: firstURL + city!)
-        let task = URLSession.shared.dataTask(with: urlObj!) { (data, response, error) in
-            guard let getData = data else { return }
-            do {
-                let dataInfo = try JSONDecoder().decode([CafeAPI].self, from: getData)
-                callCafeApi = dataInfo
-                call(callCafeApi)
-                
-            } catch {
-                print("error")
-            }
-            }.resume()
-    }
+//    let firstURL = "https://cafenomad.tw/api/v1.2/cafes/"
+//    func callApi(call: @escaping ([CafeAPI]) -> Void) {
+//        let city = cityName?.lowercased()
+//        print(city)
+//        var callCafeApi = [CafeAPI]()
+//        print(city)
+//        let urlObj = URL(string: firstURL + city!)
+//        let task = URLSession.shared.dataTask(with: urlObj!) { (data, response, error) in
+//            guard let getData = data else { return }
+//            do {
+//                let dataInfo = try JSONDecoder().decode([CafeAPI].self, from: getData)
+//                callCafeApi = dataInfo
+//                call(callCafeApi)
+//
+//            } catch {
+//                print("error")
+//            }
+//            }.resume()
+//    }
     
     func get(){
-        callApi(call: {(theCall) in
+        CallAPI.callApi(city: cityName!, call: {(theCall) in
             self.cafeShop = theCall
+            print(self.cafeShop)
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         })
     }
     
-    
+    func filter(){
+        showCafeShop = []
+        for select in cafeShop {
+            if select.wifi == shopwifi {
+                if select.seat == shopSeat {
+//                    if select.limited_time == shopLimit
+                    showCafeShop.append(select)
+                }
+            }
+        }
+    }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         get()
-        print(shopwifi)
-        print(shopSeat)
-        print(shopLimit)
-        print(shopSocket)
-        
+//        filter()
+//        print(showCafeShop)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
