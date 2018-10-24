@@ -13,6 +13,11 @@
 		2A96EA5D217EB2C7006634C6 /* CafeNomad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A96EA5B217EB2C7006634C6 /* CafeNomad.xcdatamodeld */; };
 		2A96EA5F217EB2C9006634C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A96EA5E217EB2C9006634C6 /* Assets.xcassets */; };
 		2A96EA62217EB2C9006634C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A96EA60217EB2C9006634C6 /* LaunchScreen.storyboard */; };
+		2A96EA6A217EB355006634C6 /* APIDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96EA69217EB355006634C6 /* APIDataModel.swift */; };
+		2A96EA6C217EB9C6006634C6 /* CallAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96EA6B217EB9C6006634C6 /* CallAPI.swift */; };
+		2A96EA6E217ECB7A006634C6 /* CafeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96EA6D217ECB7A006634C6 /* CafeTableViewController.swift */; };
+		2A96EA71217EEACF006634C6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96EA70217EEACF006634C6 /* DetailViewController.swift */; };
+		2A96EA73217EF41F006634C6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96EA72217EF41F006634C6 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		2A96EA5E217EB2C9006634C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2A96EA61217EB2C9006634C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2A96EA63217EB2C9006634C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2A96EA69217EB355006634C6 /* APIDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataModel.swift; sourceTree = "<group>"; };
+		2A96EA6B217EB9C6006634C6 /* CallAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallAPI.swift; sourceTree = "<group>"; };
+		2A96EA6D217ECB7A006634C6 /* CafeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeTableViewController.swift; sourceTree = "<group>"; };
+		2A96EA70217EEACF006634C6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		2A96EA72217EF41F006634C6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,14 +67,27 @@
 			isa = PBXGroup;
 			children = (
 				2A96EA54217EB2C7006634C6 /* AppDelegate.swift */,
-				2A96EA56217EB2C7006634C6 /* ViewController.swift */,
 				2A96EA58217EB2C7006634C6 /* Main.storyboard */,
 				2A96EA5E217EB2C9006634C6 /* Assets.xcassets */,
 				2A96EA60217EB2C9006634C6 /* LaunchScreen.storyboard */,
 				2A96EA63217EB2C9006634C6 /* Info.plist */,
 				2A96EA5B217EB2C7006634C6 /* CafeNomad.xcdatamodeld */,
+				2A96EA56217EB2C7006634C6 /* ViewController.swift */,
+				2A96EA6D217ECB7A006634C6 /* CafeTableViewController.swift */,
+				2A96EA6F217ECBCD006634C6 /* M */,
+				2A96EA70217EEACF006634C6 /* DetailViewController.swift */,
+				2A96EA72217EF41F006634C6 /* HomeViewController.swift */,
 			);
 			path = CafeNomad;
+			sourceTree = "<group>";
+		};
+		2A96EA6F217ECBCD006634C6 /* M */ = {
+			isa = PBXGroup;
+			children = (
+				2A96EA69217EB355006634C6 /* APIDataModel.swift */,
+				2A96EA6B217EB9C6006634C6 /* CallAPI.swift */,
+			);
+			path = M;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +162,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A96EA5D217EB2C7006634C6 /* CafeNomad.xcdatamodeld in Sources */,
+				2A96EA6C217EB9C6006634C6 /* CallAPI.swift in Sources */,
+				2A96EA6E217ECB7A006634C6 /* CafeTableViewController.swift in Sources */,
+				2A96EA73217EF41F006634C6 /* HomeViewController.swift in Sources */,
 				2A96EA57217EB2C7006634C6 /* ViewController.swift in Sources */,
+				2A96EA6A217EB355006634C6 /* APIDataModel.swift in Sources */,
 				2A96EA55217EB2C7006634C6 /* AppDelegate.swift in Sources */,
+				2A96EA71217EEACF006634C6 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +315,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y3D3ML6454;
 				INFOPLIST_FILE = CafeNomad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -304,6 +333,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y3D3ML6454;
 				INFOPLIST_FILE = CafeNomad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -10,9 +10,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var cafeShop: [CafeAPI] = []
+    
+    func get(){
+        CallAPI.callApi(call: {(theCall) in
+            self.cafeShop = theCall
+            DispatchQueue.main.async {
+                
+            }
+        })
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        get()
+        
     }
 
 
