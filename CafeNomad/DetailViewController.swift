@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class DetailViewController: UIViewController {
 
@@ -21,7 +22,13 @@ class DetailViewController: UIViewController {
     @IBOutlet var tastyLabel: UILabel!
     @IBOutlet var cheapLabel: UILabel!
     @IBOutlet var musicLabel: UILabel!
-    @IBOutlet var urlLabel: UILabel!
+    @IBOutlet var safariButton: UIButton!
+    
+    @IBAction func turnSafariPage(_ sender: UIButton) {
+        let url = URL(string: detail[number!].url)
+        let safariController = SFSafariViewController(url: url!)
+        present(safariController, animated:  true, completion:  nil)
+    }
     
     
     
@@ -34,9 +41,12 @@ class DetailViewController: UIViewController {
         tastyLabel.text = String(detail[number!].tasty)
         cheapLabel.text = String(detail[number!].cheap)
         musicLabel.text = String(detail[number!].music)
-        urlLabel.text = detail[number!].url
-
-        // Do any additional setup after loading the view.
+        
+        if detail[number!].url == "" {
+            safariButton.isHidden = true
+        } else {
+            safariButton.setTitle(detail[number!].url, for: .normal)
+        }
     }
     
 

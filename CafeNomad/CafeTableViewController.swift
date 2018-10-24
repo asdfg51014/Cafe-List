@@ -25,34 +25,10 @@ class CafeTableViewController: UITableViewController {
     var shopLimit: Bool?
     
     var shopSocket: Bool?
-    
-    
-    
-    
-//    let firstURL = "https://cafenomad.tw/api/v1.2/cafes/"
-//    func callApi(call: @escaping ([CafeAPI]) -> Void) {
-//        let city = cityName?.lowercased()
-//        print(city)
-//        var callCafeApi = [CafeAPI]()
-//        print(city)
-//        let urlObj = URL(string: firstURL + city!)
-//        let task = URLSession.shared.dataTask(with: urlObj!) { (data, response, error) in
-//            guard let getData = data else { return }
-//            do {
-//                let dataInfo = try JSONDecoder().decode([CafeAPI].self, from: getData)
-//                callCafeApi = dataInfo
-//                call(callCafeApi)
-//
-//            } catch {
-//                print("error")
-//            }
-//            }.resume()
-//    }
-    
+
     func get(){
         CallAPI.callApi(city: cityName!, call: {(theCall) in
             self.cafeShop = theCall
-            print(self.cafeShop)
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -75,8 +51,7 @@ class CafeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         get()
-//        filter()
-//        print(showCafeShop)
+
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

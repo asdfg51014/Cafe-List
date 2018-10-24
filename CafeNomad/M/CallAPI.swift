@@ -23,8 +23,8 @@ struct CallAPI {
             guard let getData = data else { return }
             do {
                 let dataInfo = try JSONDecoder().decode([CafeAPI].self, from: getData)
-                callCafeApi = dataInfo
-                call(callCafeApi)
+//                callCafeApi = dataInfo
+                call(dataInfo)
                 
             } catch {
                 print("error")
