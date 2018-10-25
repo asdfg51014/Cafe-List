@@ -10,13 +10,18 @@ import UIKit
 
 class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
-    var wifiCount: Double?
+    var wifiCount: Double = 5
     
-    var seatCount: Double?
+    var seatCount: Double = 5
     
-    var limitBool: Bool = true
+    var limitBool: String?
     
-    var socketBool: Bool = true
+    var socketBool: String?
+    
+    var limitB1: Bool = false, limitB2: Bool = false, limitB3: Bool = false
+    
+    var socketB1: Bool = false, socletB2: Bool = false, socket: Bool = false
+    
     
     let citys = [String](arrayLiteral: "All", "Taipei", "Keelung", "Taoyuan", "Hsinchu", "Miaoli", "Taichung", "Nantou", "Changhua", "Yunlin", "Chiayi", "Tainan", "Kaohsiung", "Pingtung", "Yilan", "Hualien", "Taitung", "Penghu", "Lienchiang")
 
@@ -27,13 +32,24 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBOutlet var wifiSilder: UISlider!
     @IBOutlet var seatsNumber: UILabel!
     @IBOutlet var seatsSilder: UISlider!
-    @IBOutlet var limitTime: UISwitch!
-    @IBOutlet var socket: UISwitch!
+    
+    @IBOutlet var limitButton1: UIButton!
+    @IBOutlet var linitButton2: UIButton!
+    @IBOutlet var limitButton3: UIButton!
+    
+    @IBOutlet var socketButton1: UIButton!
+    @IBOutlet var socketButton2: UIButton!
+    @IBOutlet var socketButton3: UIButton!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
+        if let customFont = UIFont(name: "American Typewriter", size: 40.0) {
+            navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1), NSAttributedString.Key.font: customFont]
+        }
         
         let cityPicker = UIPickerView()
         cityTextField.inputView = cityPicker
@@ -43,15 +59,11 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         
         wifiSilder.minimumValue = 0
         wifiSilder.maximumValue = 10
-        wifiSilder.value = 5
+        wifiSilder.value = 10
         
         seatsSilder.minimumValue = 0
         seatsSilder.maximumValue = 10
-        seatsSilder.value = 5
-        
-        limitTime.isOn = true
-        
-        socket.isOn = true
+        seatsSilder.value = 10
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -71,8 +83,8 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             }
             segueCity.shopwifi = wifiCount
             segueCity.shopSeat = seatCount
-            segueCity.shopLimit = limitBool
-            segueCity.shopSocket = socketBool
+//            segueCity.shopLimit =
+//            segueCity.shopSocket =
         }
         
     }
@@ -110,40 +122,27 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         seatsNumber.text = String(b)
     }
     
-    @IBAction func limitTimeAction(_ sender: UISwitch) {
-        if limitTime.isOn == true {
-            limitBool = true
-        } else {
-            limitBool = false
-        }
+    //MARK: Limited Buttons
+    @IBAction func limitButtonA(_ sender: UIButton) {
+        
     }
     
-    @IBAction func socketAction(_ sender: UISwitch) {
-        if socket.isOn == true {
-            socketBool = true
-        } else {
-            socketBool = false
-        }
+    @IBAction func limitButtonB(_ sender: UIButton) {
+        
     }
     
-    @IBAction func limitAction(_ sender: UISwitch) {
-        if limitTime.isOn == true {
-            limitBool = true
-        } else {
-            limitBool = false
-        }
+    @IBAction func limitButtonC(_ sender: UIButton) {
     }
     
-    @IBAction func socketBoolAction(_ sender: UISwitch) {
-        if socket.isOn == true {
-            socketBool = true
-        } else {
-            socketBool = false
-        }
+    //MARK: Socket Buttons
+    @IBAction func socketButtonA(_ sender: UIButton) {
     }
     
+    @IBAction func socketButtonB(_ sender: UIButton) {
+    }
     
-    
+    @IBAction func socketButtonC(_ sender: UIButton) {
+    }
     
     
 }

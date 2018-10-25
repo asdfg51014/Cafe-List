@@ -25,10 +25,14 @@ class CafeTableViewController: UITableViewController {
     var shopLimit: Bool?
     
     var shopSocket: Bool?
+    
+    
+    @IBOutlet var emptyView: UIView!
 
     func get(){
         CallAPI.callApi(city: cityName!, call: {(theCall) in
             self.cafeShop = theCall
+            self.filter()
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -37,34 +41,39 @@ class CafeTableViewController: UITableViewController {
     
     func filter(){
         showCafeShop = []
-        for select in cafeShop {
-            if select.wifi == shopwifi {
-                if select.seat == shopSeat {
-//                    if select.limited_time == shopLimit
-                    showCafeShop.append(select)
-                }
-            }
-        }
+        showCafeShop = cafeShop.filter({$0.wifi == shopwifi && $0.seat == shopSeat})
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         get()
+        tableView.showsVerticalScrollIndicator = false
+        tableView.separatorStyle = .none
+        tableView.contentInsetAdjustmentBehavior = .always
+        tableView.backgroundView = emptyView
+        tableView.backgroundView?.isHidden = true
 
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
+      
+        if showCafeShop.count > 0 {
+            tableView.backgroundView?.isHidden = true
+        } else {
+            tableView.backgroundView?.isHidden = false
+        }
+        
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cafeShop.count
+        return showCafeShop.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = cafeShop[indexPath.row].name
+        cell.textLabel?.text = showCafeShop[indexPath.row].name
         
         return cell
     }
@@ -77,9 +86,17 @@ class CafeTableViewController: UITableViewController {
         if segue.identifier == "Send" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let sendSegue = segue.destination as! DetailViewController
-                sendSegue.detail = cafeShop
+                sendSegue.detail = showCafeShop
                 sendSegue.number = indexPath.row
             }
+        }
+    }
+    
+    //MRAK: Animate
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.alpha = 0
+        UIView.animate(withDuration: 1.0) {
+            cell.alpha = 1
         }
     }
 }
