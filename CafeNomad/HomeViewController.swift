@@ -18,9 +18,9 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     var socketBool: String?
     
-    var limitB1: Bool = false, limitB2: Bool = false, limitB3: Bool = false
+    var limitB1: Int = 0, limitB2: Int = 0, limitB3: Int = 0
     
-    var socketB1: Bool = false, socletB2: Bool = false, socket: Bool = false
+    var socketB1: Int = 0, socketB2: Int = 0, socketB3: Int = 0
     
     
     let citys = [String](arrayLiteral: "All", "Taipei", "Keelung", "Taoyuan", "Hsinchu", "Miaoli", "Taichung", "Nantou", "Changhua", "Yunlin", "Chiayi", "Tainan", "Kaohsiung", "Pingtung", "Yilan", "Hualien", "Taitung", "Penghu", "Lienchiang")
@@ -64,6 +64,14 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         seatsSilder.minimumValue = 0
         seatsSilder.maximumValue = 10
         seatsSilder.value = 10
+        
+        limitButton1.backgroundColor = .gray
+        linitButton2.backgroundColor = .gray
+        limitButton3.backgroundColor = .gray
+        
+        socketButton1.backgroundColor = .gray
+        socketButton2.backgroundColor = .gray
+        socketButton3.backgroundColor = .gray
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -124,24 +132,106 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     //MARK: Limited Buttons
     @IBAction func limitButtonA(_ sender: UIButton) {
-        
+        limitB1 += 1
+        if limitB1 % 2 == 0 {
+            self.limitButton1.setTitleColor(.white, for: .normal)
+            self.limitButton1.backgroundColor = .gray
+        } else {
+            self.limitButton1.setTitleColor(.gray, for: .normal)
+            self.limitButton1.backgroundColor = .white
+            limitB2 = 0
+            self.linitButton2.setTitleColor(.white, for: .normal)
+            self.linitButton2.backgroundColor = .gray
+            limitB3 = 0
+            self.limitButton3.setTitleColor(.white, for: .normal)
+            self.limitButton3.backgroundColor = .gray
+        }
     }
     
     @IBAction func limitButtonB(_ sender: UIButton) {
-        
+        limitB2 += 1
+        if limitB2 % 2 == 0 {
+            self.linitButton2.setTitleColor(.white, for: .normal)
+            self.linitButton2.backgroundColor = .gray
+        } else {
+            self.linitButton2.setTitleColor(.gray, for: .normal)
+            self.linitButton2.backgroundColor = .white
+            limitB1 = 0
+            self.limitButton1.setTitleColor(.white, for: .normal)
+            self.limitButton1.backgroundColor = .gray
+            limitB3 = 0
+            self.limitButton3.setTitleColor(.white, for: .normal)
+            self.limitButton3.backgroundColor = .gray
+        }
     }
     
     @IBAction func limitButtonC(_ sender: UIButton) {
+        limitB3 += 1
+        if limitB3 % 2 == 0 {
+            self.limitButton3.setTitleColor(.white, for: .normal)
+            self.limitButton3.backgroundColor = .gray
+        } else {
+            self.limitButton3.setTitleColor(.gray, for: .normal)
+            self.limitButton3.backgroundColor = .white
+            limitB2 = 0
+            self.linitButton2.setTitleColor(.white, for: .normal)
+            self.linitButton2.backgroundColor = .gray
+            limitB1 = 0
+            self.limitButton1.setTitleColor(.white, for: .normal)
+            self.limitButton1.backgroundColor = .gray
+        }
     }
     
     //MARK: Socket Buttons
     @IBAction func socketButtonA(_ sender: UIButton) {
+        socketB1 += 1
+        if socketB1 % 2 == 0 {
+            self.socketButton1.setTitleColor(.white, for: .normal)
+            self.socketButton1.backgroundColor = .gray
+        } else {
+            self.socketButton1.setTitleColor(.gray, for: .normal)
+            self.socketButton1.backgroundColor = .white
+            socketB2 = 0
+            self.socketButton2.setTitleColor(.white, for: .normal)
+            self.socketButton2.backgroundColor = .gray
+            socketB2 = 0
+            self.socketButton3.setTitleColor(.white, for: .normal)
+            self.socketButton3.backgroundColor = .gray
+        }
     }
     
     @IBAction func socketButtonB(_ sender: UIButton) {
+        socketB2 += 1
+        if socketB2 % 2 == 0 {
+            self.socketButton2.setTitleColor(.white, for: .normal)
+            self.socketButton2.backgroundColor = .gray
+        } else {
+            self.socketButton2.setTitleColor(.gray, for: .normal)
+            self.socketButton2.backgroundColor = .white
+            limitB1 = 0
+            self.socketButton1.setTitleColor(.white, for: .normal)
+            self.socketButton1.backgroundColor = .gray
+            limitB3 = 0
+            self.socketButton3.setTitleColor(.white, for: .normal)
+            socketButton3.backgroundColor = .gray
+        }
     }
     
     @IBAction func socketButtonC(_ sender: UIButton) {
+        socketB3 += 1
+        if socketB3 % 2 == 0 {
+            self.socketButton3.setTitleColor(.white, for: .normal)
+            self.socketButton3.backgroundColor = .gray
+        } else {
+            self.socketButton3.setTitleColor(.gray, for: .normal)
+            self.socketButton3.backgroundColor = .white
+            limitB2 = 0
+            self.socketButton1.setTitleColor(.white, for: .normal)
+            self.socketButton1.backgroundColor = .gray
+            limitB1 = 0
+            self.socketButton2.setTitleColor(.white, for: .normal)
+            self.socketButton2.backgroundColor = .gray
+        }
     }
     
     
