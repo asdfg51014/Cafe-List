@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2A7F842B2181A99F001BF493 /* MoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F842A2181A99F001BF493 /* MoreTableViewController.swift */; };
 		2A7F842D2181ABDF001BF493 /* MoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F842C2181ABDF001BF493 /* MoreTableViewCell.swift */; };
+		2A7F843121840697001BF493 /* CafeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F843021840697001BF493 /* CafeTableViewCell.swift */; };
 		2A96EA55217EB2C7006634C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96EA54217EB2C7006634C6 /* AppDelegate.swift */; };
 		2A96EA5A217EB2C7006634C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A96EA58217EB2C7006634C6 /* Main.storyboard */; };
 		2A96EA5D217EB2C7006634C6 /* CafeNomad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A96EA5B217EB2C7006634C6 /* CafeNomad.xcdatamodeld */; };
@@ -24,6 +25,7 @@
 /* Begin PBXFileReference section */
 		2A7F842A2181A99F001BF493 /* MoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableViewController.swift; sourceTree = "<group>"; };
 		2A7F842C2181ABDF001BF493 /* MoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableViewCell.swift; sourceTree = "<group>"; };
+		2A7F843021840697001BF493 /* CafeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeTableViewCell.swift; sourceTree = "<group>"; };
 		2A96EA51217EB2C7006634C6 /* CafeNomad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CafeNomad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A96EA54217EB2C7006634C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A96EA59217EB2C7006634C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				2A96EA72217EF41F006634C6 /* HomeViewController.swift */,
 				2A7F842A2181A99F001BF493 /* MoreTableViewController.swift */,
 				2A7F842C2181ABDF001BF493 /* MoreTableViewCell.swift */,
+				2A7F843021840697001BF493 /* CafeTableViewCell.swift */,
 			);
 			path = CafeNomad;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 				2A96EA6E217ECB7A006634C6 /* CafeTableViewController.swift in Sources */,
 				2A96EA73217EF41F006634C6 /* HomeViewController.swift in Sources */,
 				2A96EA6A217EB355006634C6 /* APIDataModel.swift in Sources */,
+				2A7F843121840697001BF493 /* CafeTableViewCell.swift in Sources */,
 				2A96EA55217EB2C7006634C6 /* AppDelegate.swift in Sources */,
 				2A7F842D2181ABDF001BF493 /* MoreTableViewCell.swift in Sources */,
 				2A96EA71217EEACF006634C6 /* DetailViewController.swift in Sources */,

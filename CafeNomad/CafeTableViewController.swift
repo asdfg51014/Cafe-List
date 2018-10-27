@@ -72,8 +72,10 @@ class CafeTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = showCafeShop[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CafeTableViewCell
+        cell.shopName.text = showCafeShop[indexPath.row].name
+        cell.shopAddress.text = showCafeShop[indexPath.row].address
+
         
         return cell
     }

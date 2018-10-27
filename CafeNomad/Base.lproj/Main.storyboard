@@ -18,23 +18,48 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="Wez-X9-jti" style="IBUITableViewCellStyleDefault" id="GAP-HO-DEK">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="60" id="GAP-HO-DEK" customClass="CafeTableViewCell" customModule="CafeNomad" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GAP-HO-DEK" id="ktu-zl-PvE">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="59.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wez-X9-jti">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="43.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tableViewCellImage" translatesAutoresizingMaskIntoConstraints="NO" id="d70-RD-gPn">
+                                            <rect key="frame" x="10" y="12.333333333333336" width="35" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="35" id="C1y-gE-q00"/>
+                                                <constraint firstAttribute="height" constant="35" id="UGg-rP-ksD"/>
+                                            </constraints>
+                                        </imageView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="imj-eQ-T3U">
+                                            <rect key="frame" x="52.999999999999993" y="11" width="86.333333333333314" height="38"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="shopName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sc2-yQ-9wp">
+                                                    <rect key="frame" x="0.0" y="0.0" width="86.333333333333329" height="20.333333333333332"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="shopAddress" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9f-lk-YlV">
+                                                    <rect key="frame" x="0.0" y="22.333333333333336" width="86.333333333333329" height="15.666666666666664"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="imj-eQ-T3U" firstAttribute="leading" secondItem="d70-RD-gPn" secondAttribute="trailing" constant="8" id="Gaf-jT-yCo"/>
+                                        <constraint firstItem="imj-eQ-T3U" firstAttribute="centerY" secondItem="ktu-zl-PvE" secondAttribute="centerY" id="JNJ-LZ-9t2"/>
+                                        <constraint firstItem="d70-RD-gPn" firstAttribute="leading" secondItem="ktu-zl-PvE" secondAttribute="leading" constant="10" id="KxE-Lv-ocP"/>
+                                        <constraint firstItem="d70-RD-gPn" firstAttribute="centerY" secondItem="ktu-zl-PvE" secondAttribute="centerY" id="Y2z-fq-zTq"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="shopAddress" destination="l9f-lk-YlV" id="uDI-dp-1f6"/>
+                                    <outlet property="shopName" destination="Sc2-yQ-9wp" id="eDB-yo-a0P"/>
                                     <segue destination="m5f-6L-Jtz" kind="show" identifier="Send" id="KPg-kx-bYI"/>
                                 </connections>
                             </tableViewCell>
@@ -83,7 +108,7 @@
                     <viewLayoutGuide key="safeArea" id="Wbc-Wp-epO"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="113" y="-95"/>
+            <point key="canvasLocation" x="111.59420289855073" y="-95.380434782608702"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="4Dl-g7-THV">
@@ -635,5 +660,6 @@
     </scenes>
     <resources>
         <image name="icons8-no_beverages" width="96" height="96"/>
+        <image name="tableViewCellImage" width="24" height="24"/>
     </resources>
 </document>
