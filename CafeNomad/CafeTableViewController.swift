@@ -26,11 +26,13 @@ class CafeTableViewController: UITableViewController {
     
     var shopSocket: Bool?
     
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     @IBOutlet var emptyView: UIView!
 
     func get(){
         CallAPI.callApi(city: cityName!, call: {(theCall) in
+            
             self.cafeShop = theCall
             self.filter()
             DispatchQueue.main.async {
@@ -42,11 +44,27 @@ class CafeTableViewController: UITableViewController {
     func filter(){
         showCafeShop = []
         showCafeShop = cafeShop.filter({$0.wifi == shopwifi && $0.seat == shopSeat})
+//        if self.showCafeShop.count > 0 {
+//            self.tableView.backgroundView?.isHidden = true
+//            self.activityIndicator.stopAnimating()
+//            UIApplication.shared.endIgnoringInteractionEvents()
+//        } else {
+//            self.tableView.backgroundView?.isHidden = false
+//            self.activityIndicator.stopAnimating()
+//            UIApplication.shared.endIgnoringInteractionEvents()
+//        }
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activityIndicator.center = tableView.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.style = .gray
+        tableView.addSubview(activityIndicator)
+        
+        activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
         get()
         tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .none
@@ -54,15 +72,18 @@ class CafeTableViewController: UITableViewController {
         tableView.backgroundView = emptyView
         tableView.backgroundView?.isHidden = true
 
+        navigationController?.hidesBarsOnSwipe = true
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        navigationController?.hidesBarsOnSwipe = false
+//        navigationController?.setNavigationBarHidden(false, animated: true)
+//    }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
       
-        if showCafeShop.count > 0 {
-            tableView.backgroundView?.isHidden = true
-        } else {
-            tableView.backgroundView?.isHidden = false
-        }
+//
         
         return 1
     }
@@ -76,6 +97,8 @@ class CafeTableViewController: UITableViewController {
         cell.shopName.text = showCafeShop[indexPath.row].name
         cell.shopAddress.text = showCafeShop[indexPath.row].address
 
+        self.activityIndicator.stopAnimating()
+        UIApplication.shared.endIgnoringInteractionEvents()
         
         return cell
     }
@@ -97,7 +120,7 @@ class CafeTableViewController: UITableViewController {
     //MRAK: Animate
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         cell.alpha = 0
-        UIView.animate(withDuration: 1.0) {
+        UIView.animate(withDuration: 0.3) {
             cell.alpha = 1
         }
     }

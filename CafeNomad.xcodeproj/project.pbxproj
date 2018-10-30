@@ -20,6 +20,7 @@
 		2A96EA6E217ECB7A006634C6 /* CafeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96EA6D217ECB7A006634C6 /* CafeTableViewController.swift */; };
 		2A96EA71217EEACF006634C6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96EA70217EEACF006634C6 /* DetailViewController.swift */; };
 		2A96EA73217EF41F006634C6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96EA72217EF41F006634C6 /* HomeViewController.swift */; };
+		2ACBCBC2218829F000152913 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACBCBC1218829F000152913 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		2A96EA6D217ECB7A006634C6 /* CafeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeTableViewController.swift; sourceTree = "<group>"; };
 		2A96EA70217EEACF006634C6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		2A96EA72217EF41F006634C6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		2ACBCBC1218829F000152913 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				2A7F842A2181A99F001BF493 /* MoreTableViewController.swift */,
 				2A7F842C2181ABDF001BF493 /* MoreTableViewCell.swift */,
 				2A7F843021840697001BF493 /* CafeTableViewCell.swift */,
+				2ACBCBC1218829F000152913 /* MapViewController.swift */,
 			);
 			path = CafeNomad;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ACBCBC2218829F000152913 /* MapViewController.swift in Sources */,
 				2A96EA5D217EB2C7006634C6 /* CafeNomad.xcdatamodeld in Sources */,
 				2A96EA6C217EB9C6006634C6 /* CallAPI.swift in Sources */,
 				2A7F842B2181A99F001BF493 /* MoreTableViewController.swift in Sources */,
@@ -325,6 +329,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y3D3ML6454;
 				INFOPLIST_FILE = CafeNomad/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -343,6 +348,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y3D3ML6454;
 				INFOPLIST_FILE = CafeNomad/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

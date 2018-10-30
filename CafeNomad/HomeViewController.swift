@@ -48,7 +48,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         if let customFont = UIFont(name: "American Typewriter", size: 40.0) {
-            navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 1, green: 1, blue: 1, alpha: 1), NSAttributedString.Key.font: customFont]
+            navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 0, green: 0, blue: 0, alpha: 1), NSAttributedString.Key.font: customFont]
         }
         
         let cityPicker = UIPickerView()
@@ -134,16 +134,12 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBAction func limitButtonA(_ sender: UIButton) {
         limitB1 += 1
         if limitB1 % 2 == 0 {
-            self.limitButton1.setTitleColor(.white, for: .normal)
             self.limitButton1.backgroundColor = .gray
         } else {
-            self.limitButton1.setTitleColor(.gray, for: .normal)
-            self.limitButton1.backgroundColor = .white
+            self.limitButton1.backgroundColor = UIColor(red: 10/255, green: 132/255, blue: 1, alpha: 1)
             limitB2 = 0
-            self.linitButton2.setTitleColor(.white, for: .normal)
             self.linitButton2.backgroundColor = .gray
             limitB3 = 0
-            self.limitButton3.setTitleColor(.white, for: .normal)
             self.limitButton3.backgroundColor = .gray
         }
     }
@@ -151,16 +147,12 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBAction func limitButtonB(_ sender: UIButton) {
         limitB2 += 1
         if limitB2 % 2 == 0 {
-            self.linitButton2.setTitleColor(.white, for: .normal)
             self.linitButton2.backgroundColor = .gray
         } else {
-            self.linitButton2.setTitleColor(.gray, for: .normal)
-            self.linitButton2.backgroundColor = .white
+            self.linitButton2.backgroundColor = UIColor(red: 10/255, green: 132/255, blue: 1, alpha: 1)
             limitB1 = 0
-            self.limitButton1.setTitleColor(.white, for: .normal)
             self.limitButton1.backgroundColor = .gray
             limitB3 = 0
-            self.limitButton3.setTitleColor(.white, for: .normal)
             self.limitButton3.backgroundColor = .gray
         }
     }
@@ -168,16 +160,12 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBAction func limitButtonC(_ sender: UIButton) {
         limitB3 += 1
         if limitB3 % 2 == 0 {
-            self.limitButton3.setTitleColor(.white, for: .normal)
             self.limitButton3.backgroundColor = .gray
         } else {
-            self.limitButton3.setTitleColor(.gray, for: .normal)
-            self.limitButton3.backgroundColor = .white
+            self.limitButton3.backgroundColor = UIColor(red: 10/255, green: 132/255, blue: 1, alpha: 1)
             limitB2 = 0
-            self.linitButton2.setTitleColor(.white, for: .normal)
             self.linitButton2.backgroundColor = .gray
             limitB1 = 0
-            self.limitButton1.setTitleColor(.white, for: .normal)
             self.limitButton1.backgroundColor = .gray
         }
     }
@@ -186,16 +174,12 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBAction func socketButtonA(_ sender: UIButton) {
         socketB1 += 1
         if socketB1 % 2 == 0 {
-            self.socketButton1.setTitleColor(.white, for: .normal)
             self.socketButton1.backgroundColor = .gray
         } else {
-            self.socketButton1.setTitleColor(.gray, for: .normal)
-            self.socketButton1.backgroundColor = .white
+            self.socketButton1.backgroundColor = UIColor(red: 10/255, green: 132/255, blue: 1, alpha: 1)
             socketB2 = 0
-            self.socketButton2.setTitleColor(.white, for: .normal)
             self.socketButton2.backgroundColor = .gray
             socketB2 = 0
-            self.socketButton3.setTitleColor(.white, for: .normal)
             self.socketButton3.backgroundColor = .gray
         }
     }
@@ -203,16 +187,12 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBAction func socketButtonB(_ sender: UIButton) {
         socketB2 += 1
         if socketB2 % 2 == 0 {
-            self.socketButton2.setTitleColor(.white, for: .normal)
             self.socketButton2.backgroundColor = .gray
         } else {
-            self.socketButton2.setTitleColor(.gray, for: .normal)
-            self.socketButton2.backgroundColor = .white
+            self.socketButton2.backgroundColor = UIColor(red: 10/255, green: 132/255, blue: 1, alpha: 1)
             limitB1 = 0
-            self.socketButton1.setTitleColor(.white, for: .normal)
             self.socketButton1.backgroundColor = .gray
             limitB3 = 0
-            self.socketButton3.setTitleColor(.white, for: .normal)
             socketButton3.backgroundColor = .gray
         }
     }
@@ -220,16 +200,12 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     @IBAction func socketButtonC(_ sender: UIButton) {
         socketB3 += 1
         if socketB3 % 2 == 0 {
-            self.socketButton3.setTitleColor(.white, for: .normal)
             self.socketButton3.backgroundColor = .gray
         } else {
-            self.socketButton3.setTitleColor(.gray, for: .normal)
-            self.socketButton3.backgroundColor = .white
+            self.socketButton3.backgroundColor = UIColor(red: 10/255, green: 132/255, blue: 1, alpha: 1)
             limitB2 = 0
-            self.socketButton1.setTitleColor(.white, for: .normal)
             self.socketButton1.backgroundColor = .gray
             limitB1 = 0
-            self.socketButton2.setTitleColor(.white, for: .normal)
             self.socketButton2.backgroundColor = .gray
         }
     }
