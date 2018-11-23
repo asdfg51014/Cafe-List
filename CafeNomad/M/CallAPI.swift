@@ -10,8 +10,6 @@ import Foundation
 
 struct CallAPI {
     
-    
-    
     static func callApi(city: String ,call: @escaping ([CafeAPI]) -> Void) {
         
         var callCafeApi = [CafeAPI]()
@@ -23,7 +21,6 @@ struct CallAPI {
             guard let getData = data else { return }
             do {
                 let dataInfo = try JSONDecoder().decode([CafeAPI].self, from: getData)
-//                callCafeApi = dataInfo
                 call(dataInfo)
                 
             } catch {

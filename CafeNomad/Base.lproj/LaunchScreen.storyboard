@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,25 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.55000000000000004" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nathan-dumlao-426648-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="uAq-Bn-eCY">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LOGO" translatesAutoresizingMaskIntoConstraints="NO" id="Rs5-FI-nvy">
+                                <rect key="frame" x="25" y="171" width="325" height="325"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Rs5-FI-nvy" secondAttribute="height" multiplier="1:1" id="8Lv-u4-YJr"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cafe Nomad" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgu-Dd-DbA">
-                                <rect key="frame" x="60" y="307.5" width="255.5" height="52"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="45"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="2" height="-2"/>
-                            </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="uAq-Bn-eCY" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="2TO-f7-ope"/>
-                            <constraint firstItem="uAq-Bn-eCY" firstAttribute="bottom" secondItem="Ze5-6b-2t3" secondAttribute="bottom" id="7Ty-2J-gmi"/>
-                            <constraint firstItem="uAq-Bn-eCY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="P6h-Er-tZB"/>
-                            <constraint firstItem="jgu-Dd-DbA" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="ayl-oM-8P4"/>
-                            <constraint firstItem="uAq-Bn-eCY" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="n3p-jx-Ego"/>
-                            <constraint firstItem="jgu-Dd-DbA" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="wTc-fh-h6p"/>
+                            <constraint firstItem="Rs5-FI-nvy" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="DZu-WZ-iv3"/>
+                            <constraint firstItem="Rs5-FI-nvy" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="IpZ-Wm-xZN"/>
+                            <constraint firstItem="Rs5-FI-nvy" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="25" id="VOT-hD-WL4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -46,6 +40,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="nathan-dumlao-426648-unsplash" width="4480" height="6720"/>
+        <image name="LOGO" width="512" height="512"/>
     </resources>
 </document>

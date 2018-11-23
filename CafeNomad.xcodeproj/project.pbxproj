@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2A7F842B2181A99F001BF493 /* MoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F842A2181A99F001BF493 /* MoreTableViewController.swift */; };
+		2A26E253218EF8E8006AC1FE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26E252218EF8E8006AC1FE /* MapViewController.swift */; };
+		2A26E25521913098006AC1FE /* CafeAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26E25421913098006AC1FE /* CafeAnnotationView.swift */; };
+		2A26E25721913974006AC1FE /* ClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26E25621913974006AC1FE /* ClusterAnnotationView.swift */; };
+		2A38098521A14D7E00FF6034 /* HomePageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A38098421A14D7E00FF6034 /* HomePageTableViewController.swift */; };
+		2A51A617219D88EA0024D086 /* SaveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A51A616219D88EA0024D086 /* SaveTableViewCell.swift */; };
+		2A51A619219D88FB0024D086 /* SaveTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A51A618219D88FB0024D086 /* SaveTableViewController.swift */; };
 		2A7F842D2181ABDF001BF493 /* MoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F842C2181ABDF001BF493 /* MoreTableViewCell.swift */; };
-		2A7F843121840697001BF493 /* CafeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A7F843021840697001BF493 /* CafeTableViewCell.swift */; };
+		2A81F949218BF4E5007DFD28 /* SearchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A81F948218BF4E5007DFD28 /* SearchPageViewController.swift */; };
+		2A81F94F218ED856007DFD28 /* Italianno-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2A81F94D218ED856007DFD28 /* Italianno-Regular.ttf */; };
+		2A81F950218ED856007DFD28 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2A81F94E218ED856007DFD28 /* OFL.txt */; };
 		2A96EA55217EB2C7006634C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96EA54217EB2C7006634C6 /* AppDelegate.swift */; };
 		2A96EA5A217EB2C7006634C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A96EA58217EB2C7006634C6 /* Main.storyboard */; };
 		2A96EA5D217EB2C7006634C6 /* CafeNomad.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2A96EA5B217EB2C7006634C6 /* CafeNomad.xcdatamodeld */; };
@@ -17,16 +24,28 @@
 		2A96EA62217EB2C9006634C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2A96EA60217EB2C9006634C6 /* LaunchScreen.storyboard */; };
 		2A96EA6A217EB355006634C6 /* APIDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96EA69217EB355006634C6 /* APIDataModel.swift */; };
 		2A96EA6C217EB9C6006634C6 /* CallAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96EA6B217EB9C6006634C6 /* CallAPI.swift */; };
-		2A96EA6E217ECB7A006634C6 /* CafeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96EA6D217ECB7A006634C6 /* CafeTableViewController.swift */; };
 		2A96EA71217EEACF006634C6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96EA70217EEACF006634C6 /* DetailViewController.swift */; };
-		2A96EA73217EF41F006634C6 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A96EA72217EF41F006634C6 /* HomeViewController.swift */; };
-		2ACBCBC2218829F000152913 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ACBCBC1218829F000152913 /* MapViewController.swift */; };
+		2A9A17972192FB2D00B53CAD /* DetailMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A9A17962192FB2D00B53CAD /* DetailMapViewController.swift */; };
+		2AAB3A5F2197F2D400F041E4 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AAB3A5E2197F2D400F041E4 /* TabBarController.swift */; };
+		2AE2521F2189B98B0041065F /* CallAPI2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE2521E2189B98B0041065F /* CallAPI2.swift */; };
+		2AE25242218AC2990041065F /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE25241218AC2990041065F /* HomePageViewController.swift */; };
+		2AE25244218AC6550041065F /* HomePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE25243218AC6550041065F /* HomePageTableViewCell.swift */; };
+		2AE2524A218AE9EA0041065F /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE25249218AE9EA0041065F /* AboutViewController.swift */; };
+		2AE2524C218B1A5D0041065F /* AboutCell0TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE2524B218B1A5D0041065F /* AboutCell0TableViewCell.swift */; };
+		2AE2524E218B1A6D0041065F /* AboutCell1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE2524D218B1A6D0041065F /* AboutCell1TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2A7F842A2181A99F001BF493 /* MoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableViewController.swift; sourceTree = "<group>"; };
+		2A26E252218EF8E8006AC1FE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		2A26E25421913098006AC1FE /* CafeAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeAnnotationView.swift; sourceTree = "<group>"; };
+		2A26E25621913974006AC1FE /* ClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterAnnotationView.swift; sourceTree = "<group>"; };
+		2A38098421A14D7E00FF6034 /* HomePageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageTableViewController.swift; sourceTree = "<group>"; };
+		2A51A616219D88EA0024D086 /* SaveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTableViewCell.swift; sourceTree = "<group>"; };
+		2A51A618219D88FB0024D086 /* SaveTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTableViewController.swift; sourceTree = "<group>"; };
 		2A7F842C2181ABDF001BF493 /* MoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableViewCell.swift; sourceTree = "<group>"; };
-		2A7F843021840697001BF493 /* CafeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeTableViewCell.swift; sourceTree = "<group>"; };
+		2A81F948218BF4E5007DFD28 /* SearchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPageViewController.swift; sourceTree = "<group>"; };
+		2A81F94D218ED856007DFD28 /* Italianno-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Italianno-Regular.ttf"; sourceTree = "<group>"; };
+		2A81F94E218ED856007DFD28 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		2A96EA51217EB2C7006634C6 /* CafeNomad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CafeNomad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A96EA54217EB2C7006634C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2A96EA59217EB2C7006634C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -36,10 +55,15 @@
 		2A96EA63217EB2C9006634C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A96EA69217EB355006634C6 /* APIDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIDataModel.swift; sourceTree = "<group>"; };
 		2A96EA6B217EB9C6006634C6 /* CallAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallAPI.swift; sourceTree = "<group>"; };
-		2A96EA6D217ECB7A006634C6 /* CafeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeTableViewController.swift; sourceTree = "<group>"; };
 		2A96EA70217EEACF006634C6 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		2A96EA72217EF41F006634C6 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		2ACBCBC1218829F000152913 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		2A9A17962192FB2D00B53CAD /* DetailMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMapViewController.swift; sourceTree = "<group>"; };
+		2AAB3A5E2197F2D400F041E4 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		2AE2521E2189B98B0041065F /* CallAPI2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallAPI2.swift; sourceTree = "<group>"; };
+		2AE25241218AC2990041065F /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		2AE25243218AC6550041065F /* HomePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageTableViewCell.swift; sourceTree = "<group>"; };
+		2AE25249218AE9EA0041065F /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		2AE2524B218B1A5D0041065F /* AboutCell0TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCell0TableViewCell.swift; sourceTree = "<group>"; };
+		2AE2524D218B1A6D0041065F /* AboutCell1TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCell1TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +77,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A81F94B218ED80E007DFD28 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2A81F94C218ED82A007DFD28 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2A81F94C218ED82A007DFD28 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2A81F94D218ED856007DFD28 /* Italianno-Regular.ttf */,
+				2A81F94E218ED856007DFD28 /* OFL.txt */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		2A96EA48217EB2C7006634C6 = {
 			isa = PBXGroup;
 			children = (
@@ -78,14 +119,12 @@
 				2A96EA60217EB2C9006634C6 /* LaunchScreen.storyboard */,
 				2A96EA63217EB2C9006634C6 /* Info.plist */,
 				2A96EA5B217EB2C7006634C6 /* CafeNomad.xcdatamodeld */,
-				2A96EA6D217ECB7A006634C6 /* CafeTableViewController.swift */,
+				2A81F94B218ED80E007DFD28 /* Resources */,
 				2A96EA6F217ECBCD006634C6 /* M */,
-				2A96EA70217EEACF006634C6 /* DetailViewController.swift */,
-				2A96EA72217EF41F006634C6 /* HomeViewController.swift */,
-				2A7F842A2181A99F001BF493 /* MoreTableViewController.swift */,
-				2A7F842C2181ABDF001BF493 /* MoreTableViewCell.swift */,
-				2A7F843021840697001BF493 /* CafeTableViewCell.swift */,
-				2ACBCBC1218829F000152913 /* MapViewController.swift */,
+				2AE25246218AE9840041065F /* V */,
+				2AE25245218AE96D0041065F /* C */,
+				2AAB3A5E2197F2D400F041E4 /* TabBarController.swift */,
+				2A38098421A14D7E00FF6034 /* HomePageTableViewController.swift */,
 			);
 			path = CafeNomad;
 			sourceTree = "<group>";
@@ -93,10 +132,39 @@
 		2A96EA6F217ECBCD006634C6 /* M */ = {
 			isa = PBXGroup;
 			children = (
+				2AE2521E2189B98B0041065F /* CallAPI2.swift */,
 				2A96EA69217EB355006634C6 /* APIDataModel.swift */,
 				2A96EA6B217EB9C6006634C6 /* CallAPI.swift */,
 			);
 			path = M;
+			sourceTree = "<group>";
+		};
+		2AE25245218AE96D0041065F /* C */ = {
+			isa = PBXGroup;
+			children = (
+				2AE25241218AC2990041065F /* HomePageViewController.swift */,
+				2A81F948218BF4E5007DFD28 /* SearchPageViewController.swift */,
+				2A96EA70217EEACF006634C6 /* DetailViewController.swift */,
+				2A9A17962192FB2D00B53CAD /* DetailMapViewController.swift */,
+				2A26E252218EF8E8006AC1FE /* MapViewController.swift */,
+				2AE25249218AE9EA0041065F /* AboutViewController.swift */,
+				2A51A618219D88FB0024D086 /* SaveTableViewController.swift */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		2AE25246218AE9840041065F /* V */ = {
+			isa = PBXGroup;
+			children = (
+				2A51A616219D88EA0024D086 /* SaveTableViewCell.swift */,
+				2AE25243218AC6550041065F /* HomePageTableViewCell.swift */,
+				2A7F842C2181ABDF001BF493 /* MoreTableViewCell.swift */,
+				2AE2524B218B1A5D0041065F /* AboutCell0TableViewCell.swift */,
+				2AE2524D218B1A6D0041065F /* AboutCell1TableViewCell.swift */,
+				2A26E25421913098006AC1FE /* CafeAnnotationView.swift */,
+				2A26E25621913974006AC1FE /* ClusterAnnotationView.swift */,
+			);
+			path = V;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,9 +225,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A81F950218ED856007DFD28 /* OFL.txt in Resources */,
 				2A96EA62217EB2C9006634C6 /* LaunchScreen.storyboard in Resources */,
 				2A96EA5F217EB2C9006634C6 /* Assets.xcassets in Resources */,
 				2A96EA5A217EB2C7006634C6 /* Main.storyboard in Resources */,
+				2A81F94F218ED856007DFD28 /* Italianno-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,17 +240,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2ACBCBC2218829F000152913 /* MapViewController.swift in Sources */,
 				2A96EA5D217EB2C7006634C6 /* CafeNomad.xcdatamodeld in Sources */,
 				2A96EA6C217EB9C6006634C6 /* CallAPI.swift in Sources */,
-				2A7F842B2181A99F001BF493 /* MoreTableViewController.swift in Sources */,
-				2A96EA6E217ECB7A006634C6 /* CafeTableViewController.swift in Sources */,
-				2A96EA73217EF41F006634C6 /* HomeViewController.swift in Sources */,
+				2A38098521A14D7E00FF6034 /* HomePageTableViewController.swift in Sources */,
 				2A96EA6A217EB355006634C6 /* APIDataModel.swift in Sources */,
-				2A7F843121840697001BF493 /* CafeTableViewCell.swift in Sources */,
+				2A26E25721913974006AC1FE /* ClusterAnnotationView.swift in Sources */,
+				2AE25242218AC2990041065F /* HomePageViewController.swift in Sources */,
+				2AE25244218AC6550041065F /* HomePageTableViewCell.swift in Sources */,
 				2A96EA55217EB2C7006634C6 /* AppDelegate.swift in Sources */,
+				2AE2524A218AE9EA0041065F /* AboutViewController.swift in Sources */,
+				2AE2524E218B1A6D0041065F /* AboutCell1TableViewCell.swift in Sources */,
+				2A81F949218BF4E5007DFD28 /* SearchPageViewController.swift in Sources */,
+				2AE2521F2189B98B0041065F /* CallAPI2.swift in Sources */,
 				2A7F842D2181ABDF001BF493 /* MoreTableViewCell.swift in Sources */,
+				2AE2524C218B1A5D0041065F /* AboutCell0TableViewCell.swift in Sources */,
+				2A51A619219D88FB0024D086 /* SaveTableViewController.swift in Sources */,
+				2A51A617219D88EA0024D086 /* SaveTableViewCell.swift in Sources */,
+				2A9A17972192FB2D00B53CAD /* DetailMapViewController.swift in Sources */,
 				2A96EA71217EEACF006634C6 /* DetailViewController.swift in Sources */,
+				2AAB3A5F2197F2D400F041E4 /* TabBarController.swift in Sources */,
+				2A26E25521913098006AC1FE /* CafeAnnotationView.swift in Sources */,
+				2A26E253218EF8E8006AC1FE /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

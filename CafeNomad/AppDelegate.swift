@@ -8,15 +8,23 @@
 
 import UIKit
 import CoreData
+import CoreLocation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    let whereAmI = CLLocationManager()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let tabBarController = self.window?.rootViewController as! UITabBarController
+        
+        tabBarController.tabBar.tintColor = .brown
+        tabBarController.tabBar.barTintColor = .white
+        tabBarController.tabBar.unselectedItemTintColor = UIColor(red: 170/255, green: 170/255, blue: 170/255, alpha: 1)
+        
+        whereAmI.requestWhenInUseAuthorization()
         return true
     }
 
