@@ -12,29 +12,18 @@ import CoreData
 
 class HomePageViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UITabBarDelegate, UISearchControllerDelegate, UISearchResultsUpdating {
     
-    var cafeShop: [CafeAPI] = []
-    
-    var searchResult: [CafeAPI] = []
-    
+    var cafeShopArray: [CafeAPI] = []
+    var searchResultArray: [CafeAPI] = []
     var cityName: String?
-    
     var judfWifi: Int?
-    
     var judgSocket: Int?
-    
     var judeStandingWork: Int?
-    
     var judgLimited: Int?
-    
     var sendcondition = false
-    
     var resetCondition = false
-    
     var pullTVC: UIRefreshControl!
-    
     var search: UISearchController?
-    
-    let citys: [(e: String, c: String)] = [("Taipei", "臺北"), ("Keelung", "基隆"), ("Taoyuan", "桃園"), ("Hsinchu", "新竹"), ("Miaoli", "苗栗"), ("Taichung", "臺中"), ("Nantou", "南投"), ("Changhua", "彰化"), ("Yunlin", "雲林"), ("Chiayi", "嘉義"), ("Tainan", "臺南"), ("Kaohsiung", "高雄"), ("Pingtung", "屏東"), ("Yilan", "宜蘭"), ("Hualien", "花蓮"), ("Taitung", "臺東"), ("Penghu", "澎湖"), ("Lienchiang", "連江")]
+    let citysArray: [(e: String, c: String)] = [("Taipei", "臺北"), ("Keelung", "基隆"), ("Taoyuan", "桃園"), ("Hsinchu", "新竹"), ("Miaoli", "苗栗"), ("Taichung", "臺中"), ("Nantou", "南投"), ("Changhua", "彰化"), ("Yunlin", "雲林"), ("Chiayi", "嘉義"), ("Tainan", "臺南"), ("Kaohsiung", "高雄"), ("Pingtung", "屏東"), ("Yilan", "宜蘭"), ("Hualien", "花蓮"), ("Taitung", "臺東"), ("Penghu", "澎湖"), ("Lienchiang", "連江")]
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var loadingView: UIView!
@@ -48,7 +37,7 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBAction func resetAreaButton(_ sender: UIBarButtonItem) {
         showLoadingView()
         resetCondition = true
-        getTaiwanCafeAPI()
+        receiveTaiwanCafeResponse()
     }
     
     
@@ -86,14 +75,10 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func get(){
         CallAPI.callApi(city: cityName!, call: {(theCall) in
-//            self.cafeShop = []
             DispatchQueue.main.async {
-//                self.hiddenLoadingView()
-                self.cafeShop = theCall
-                
-                
+                self.cafeShopArray = theCall
                 self.tableView.reloadData()
-                if self.cafeShop.count == 0 {
+                if self.cafeShopArray.count == 0 {
                     self.tableView.backgroundView?.isHidden = false
                 } else {
                     self.tableView.backgroundView?.isHidden = true
@@ -102,15 +87,10 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
         })
     }
     
-    
-    
-    func getTaiwanCafeAPI(){
+    func receiveTaiwanCafeResponse(){
         CallAPI2.callApi(call: {(theCall) in
-//            self.cafeShop = []
             DispatchQueue.main.async {
-                
-                self.cafeShop = theCall
-                
+                self.cafeShopArray = theCall
                 if self.resetCondition == false {
                     if let mapViewController = self.tabBarController?.viewControllers?[1] as? MapViewController {
                         mapViewController.points = []
@@ -125,9 +105,8 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
                     }
                 }
                 self.hiddenLoadingView()
-//                self.tabBarController?.viewControllers![1].view
                 self.tableView.reloadData()
-                if self.cafeShop.count == 0 {
+                if self.cafeShopArray.count == 0 {
                     self.tableView.backgroundView?.isHidden = false
                 } else {
                     self.tableView.backgroundView?.isHidden = true
@@ -136,36 +115,33 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
         })
     }
     
-    func get3(){
-        
+    // recive response and filter
+    func receiveAndFilter(){
         CallAPI.callApi(city: cityName!, call: {(theCall) in
-//            self.cafeShop = []
             DispatchQueue.main.async {
-                self.cafeShop = theCall
-                
-                
+                self.cafeShopArray = theCall
                 if self.judfWifi == 0 {
-                    self.cafeShop = self.cafeShop.filter({$0.wifi != 0})
+                    self.cafeShopArray = self.cafeShopArray.filter({$0.wifi != 0})
                 } else if self.judfWifi == 2 {
-                    self.cafeShop = self.cafeShop.filter({$0.wifi == 0})
+                    self.cafeShopArray = self.cafeShopArray.filter({$0.wifi == 0})
                 }
                 
                 if self.judgSocket == 0 {
-                    self.cafeShop = self.cafeShop.filter({$0.socket == "yes"})
+                    self.cafeShopArray = self.cafeShopArray.filter({$0.socket == "yes"})
                 } else if self.judgSocket == 2 {
-                    self.cafeShop = self.cafeShop.filter({$0.socket == "no"})
+                    self.cafeShopArray = self.cafeShopArray.filter({$0.socket == "no"})
                 }
                 
                 if self.judeStandingWork == 0 {
-                    self.cafeShop = self.cafeShop.filter({$0.standing_desk == "yes"})
+                    self.cafeShopArray = self.cafeShopArray.filter({$0.standing_desk == "yes"})
                 } else if self.judeStandingWork == 1 {
-                    self.cafeShop = self.cafeShop.filter({$0.standing_desk == "no"})
+                    self.cafeShopArray = self.cafeShopArray.filter({$0.standing_desk == "no"})
                 }
                 
                 if self.judgLimited == 0 {
-                    self.cafeShop = self.cafeShop.filter({$0.limited_time == "no"})
+                    self.cafeShopArray = self.cafeShopArray.filter({$0.limited_time == "no"})
                 } else if self.judgLimited == 2 {
-                    self.cafeShop = self.cafeShop.filter({$0.limited_time == "yes"})
+                    self.cafeShopArray = self.cafeShopArray.filter({$0.limited_time == "yes"})
                 }
                 self.cityName = ""
                 self.sendcondition = false
@@ -175,7 +151,7 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
                 self.judgLimited = 1
                 
                 self.tableView.reloadData()
-                if self.cafeShop.count == 0 {
+                if self.cafeShopArray.count == 0 {
                     self.tableView.backgroundView?.isHidden = false
                 } else {
                     self.tableView.backgroundView?.isHidden = true
@@ -186,7 +162,6 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func judgCondition(){
         if sendcondition == true {
-            
             if cityName != "" {
                 filter()
             } else if judfWifi != 1 {
@@ -198,13 +173,12 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
             } else if judgLimited != 1 {
                 filter()
             }
-            
         }
-        
+
     }
     
     func filter() {
-        get3()
+        receiveAndFilter()
     }
     
     func settingSearchController() {
@@ -228,7 +202,7 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func filterContent(for searchText: String) {
-        searchResult = cafeShop.filter({ (results) -> Bool in
+        searchResultArray = cafeShopArray.filter({ (results) -> Bool in
             let name = results.name, address = results.address
             let isMach = name.localizedCaseInsensitiveContains(searchText) || address.localizedCaseInsensitiveContains(searchText)
             return isMach
@@ -249,15 +223,15 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if (search?.isActive)! {
-            return searchResult.count
+            return searchResultArray.count
         } else {
-            return cafeShop.count
+            return cafeShopArray.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! HomePageTableViewCell
-        let searchs = ((search?.isActive)!) ? searchResult[indexPath.row] : cafeShop[indexPath.row]
+        let searchs = ((search?.isActive)!) ? searchResultArray[indexPath.row] : cafeShopArray[indexPath.row]
         cell.shopNameLabel.text = searchs.name
         cell.shopAddressLabel.text = searchs.address
         return cell
@@ -265,8 +239,6 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        
     }
    
     
@@ -284,19 +256,19 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
             if let indexPath = tableView.indexPathForSelectedRow {
                 let sendSegue = segue.destination as! DetailViewController
                 
-                sendSegue.detailName = ((search?.isActive)!) ? searchResult[indexPath.row].name : cafeShop[indexPath.row].name
-                sendSegue.detailAddress = ((search?.isActive)!) ? searchResult[indexPath.row].address : cafeShop[indexPath.row].address
-                sendSegue.detailWifi = ((search?.isActive)!) ? searchResult[indexPath.row].wifi : cafeShop[indexPath.row].wifi
-                sendSegue.detailSeat = ((search?.isActive)!) ? searchResult[indexPath.row].seat : cafeShop[indexPath.row].seat
-                sendSegue.detailQuite = ((search?.isActive)!) ? searchResult[indexPath.row].quiet : cafeShop[indexPath.row].quiet
-                sendSegue.detailTasty = ((search?.isActive)!) ? searchResult[indexPath.row].tasty : cafeShop[indexPath.row].tasty
-                sendSegue.detailMusic = ((search?.isActive)!) ? searchResult[indexPath.row].music : cafeShop[indexPath.row].music
-                sendSegue.detailSocket = ((search?.isActive)!) ? searchResult[indexPath.row].name : cafeShop[indexPath.row].socket
-                sendSegue.detailStandingDesk = ((search?.isActive)!) ? searchResult[indexPath.row].standing_desk : cafeShop[indexPath.row].standing_desk
-                sendSegue.detailLimitedTiime = ((search?.isActive)!) ? searchResult[indexPath.row].limited_time : cafeShop[indexPath.row].limited_time
-                sendSegue.detailUrl = ((search?.isActive)!) ? searchResult[indexPath.row].url : cafeShop[indexPath.row].url
-                sendSegue.detailLatitude = ((search?.isActive)!) ? searchResult[indexPath.row].latitude : cafeShop[indexPath.row].latitude
-                sendSegue.detailLongitude = ((search?.isActive)!) ? searchResult[indexPath.row].longitude : cafeShop[indexPath.row].longitude
+                sendSegue.detailName = ((search?.isActive)!) ? searchResultArray[indexPath.row].name : cafeShopArray[indexPath.row].name
+                sendSegue.detailAddress = ((search?.isActive)!) ? searchResultArray[indexPath.row].address : cafeShopArray[indexPath.row].address
+                sendSegue.detailWifi = ((search?.isActive)!) ? searchResultArray[indexPath.row].wifi : cafeShopArray[indexPath.row].wifi
+                sendSegue.detailSeat = ((search?.isActive)!) ? searchResultArray[indexPath.row].seat : cafeShopArray[indexPath.row].seat
+                sendSegue.detailQuite = ((search?.isActive)!) ? searchResultArray[indexPath.row].quiet : cafeShopArray[indexPath.row].quiet
+                sendSegue.detailTasty = ((search?.isActive)!) ? searchResultArray[indexPath.row].tasty : cafeShopArray[indexPath.row].tasty
+                sendSegue.detailMusic = ((search?.isActive)!) ? searchResultArray[indexPath.row].music : cafeShopArray[indexPath.row].music
+                sendSegue.detailSocket = ((search?.isActive)!) ? searchResultArray[indexPath.row].name : cafeShopArray[indexPath.row].socket
+                sendSegue.detailStandingDesk = ((search?.isActive)!) ? searchResultArray[indexPath.row].standing_desk : cafeShopArray[indexPath.row].standing_desk
+                sendSegue.detailLimitedTiime = ((search?.isActive)!) ? searchResultArray[indexPath.row].limited_time : cafeShopArray[indexPath.row].limited_time
+                sendSegue.detailUrl = ((search?.isActive)!) ? searchResultArray[indexPath.row].url : cafeShopArray[indexPath.row].url
+                sendSegue.detailLatitude = ((search?.isActive)!) ? searchResultArray[indexPath.row].latitude : cafeShopArray[indexPath.row].latitude
+                sendSegue.detailLongitude = ((search?.isActive)!) ? searchResultArray[indexPath.row].longitude : cafeShopArray[indexPath.row].longitude
             }
         }
     }
@@ -306,7 +278,7 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
         settingSearchController()
         settingNavigationBar()
         showLoadingView()
-        getTaiwanCafeAPI()
+        receiveTaiwanCafeResponse()
         self.tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .none
         tabBarController?.viewControllers![1].loadViewIfNeeded()
@@ -324,7 +296,6 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
         if UserDefaults.standard.bool(forKey: "hasViewedWalkthrough") {
             return
         }
-        
         let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
         if let walkthroughViewController = storyboard.instantiateViewController(withIdentifier: "WalkthroughViewController") as? WalkthoughViewController {
             present(walkthroughViewController, animated: true, completion: nil)

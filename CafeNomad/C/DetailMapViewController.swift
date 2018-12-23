@@ -51,7 +51,6 @@ class DetailMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     }
     
     //MARK: functions
-    
     func shopLocation(_ latitude: Double, _ longitude: Double) {
         let ann = MKPointAnnotation()
         ann.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
@@ -70,9 +69,7 @@ class DetailMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
         super.viewDidLoad()
 
         shopLocation(latitude!, longitude!)
-        
         registerAnnotationViewClass()
-        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
         locationManager.startUpdatingLocation()
@@ -90,19 +87,13 @@ class DetailMapViewController: UIViewController, MKMapViewDelegate, CLLocationMa
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[locations.count - 1]
-        
         userLatitude = location.coordinate.latitude
         userLongitude = location.coordinate.longitude
-        
         if location.horizontalAccuracy > 0 {
             locationManager.stopUpdatingLocation()
             let ann = MKPointAnnotation()
             ann.coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
             locationManager.distanceFilter = CLLocationDistance(10)
         }
-        
-        
     }
-    
-    
 }

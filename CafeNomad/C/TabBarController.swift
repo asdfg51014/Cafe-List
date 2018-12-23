@@ -12,21 +12,8 @@ class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-//        print(tabBar.items!.index(of :item))
-        
-//        switch tabBar.items!.index(of: item) {
-//        case <#pattern#>:
-//            <#code#>
-//        default:
-//            <#code#>
-//        }
     }
-    
-    
-
 }

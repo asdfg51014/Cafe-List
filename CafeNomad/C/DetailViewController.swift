@@ -59,8 +59,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate, NSFetchedResult
     
     var viewContext: NSManagedObjectContext!
     
-    
-    
     @IBOutlet var shopName: UILabel!
     @IBOutlet var shopAddress: UILabel!
     @IBOutlet var wifiImage: UIImageView!
@@ -261,7 +259,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate, NSFetchedResult
         judge(p: quietImage, n: Double(detailQuite!))
         judge(p: tasty, n: Double(detailTasty!))
         judge(p: musicImage, n: Double(detailMusic!))
-        
         judgeLimitLabel(detailLimitedTiime!)
         judgeSocketLabel(detailSocket!)
         judgeStandingWorkLabel(detailStandingDesk!)
@@ -289,7 +286,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate, NSFetchedResult
         shopName.text = detailName
         shopAddress.adjustsFontSizeToFitWidth = true
         shopAddress.text = detailAddress!
-        
         socketLabel.adjustsFontSizeToFitWidth = true
         standingWorkLabel.adjustsFontSizeToFitWidth = true
     }
@@ -329,10 +325,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, NSFetchedResult
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.hidesBarsOnSwipe = false
-        
         viewContext = app?.persistentContainer.viewContext
-        
-        
         initSet()
         judgSet()
         cafeShopInMap()

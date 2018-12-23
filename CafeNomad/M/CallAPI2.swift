@@ -14,7 +14,6 @@ struct CallAPI2 {
         
         var callCafeApi = [CafeAPI]()
         
-        
         let urlObj = URL(string: "https://cafenomad.tw/api/v1.2/cafes/")
         
         let task = URLSession.shared.dataTask(with: urlObj!) { (data, response, error) in
@@ -22,7 +21,6 @@ struct CallAPI2 {
             do {
                 let dataInfo = try JSONDecoder().decode([CafeAPI].self, from: getData)
                 call(dataInfo)
-                
             } catch {
                 print("error")
             }

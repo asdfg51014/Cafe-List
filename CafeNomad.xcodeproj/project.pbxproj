@@ -130,10 +130,6 @@
 				2A96EA6F217ECBCD006634C6 /* M */,
 				2AE25246218AE9840041065F /* V */,
 				2AE25245218AE96D0041065F /* C */,
-				2AAB3A5E2197F2D400F041E4 /* TabBarController.swift */,
-				2AD5A86521AD449C00D954F3 /* WalkthroughContentViewController.swift */,
-				2AD5A86721AD72A000D954F3 /* WalkthroughPageViewController.swift */,
-				2AD5A86921AD78D500D954F3 /* WalkthoughViewController.swift */,
 			);
 			path = CafeNomad;
 			sourceTree = "<group>";
@@ -141,8 +137,8 @@
 		2A96EA6F217ECBCD006634C6 /* M */ = {
 			isa = PBXGroup;
 			children = (
-				2AE2521E2189B98B0041065F /* CallAPI2.swift */,
 				2A96EA69217EB355006634C6 /* APIDataModel.swift */,
+				2AE2521E2189B98B0041065F /* CallAPI2.swift */,
 				2A96EA6B217EB9C6006634C6 /* CallAPI.swift */,
 			);
 			path = M;
@@ -158,6 +154,10 @@
 				2A26E252218EF8E8006AC1FE /* MapViewController.swift */,
 				2AE25249218AE9EA0041065F /* AboutViewController.swift */,
 				2A51A618219D88FB0024D086 /* SaveTableViewController.swift */,
+				2AD5A86521AD449C00D954F3 /* WalkthroughContentViewController.swift */,
+				2AD5A86721AD72A000D954F3 /* WalkthroughPageViewController.swift */,
+				2AD5A86921AD78D500D954F3 /* WalkthoughViewController.swift */,
+				2AAB3A5E2197F2D400F041E4 /* TabBarController.swift */,
 			);
 			path = C;
 			sourceTree = "<group>";
