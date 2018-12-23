@@ -18,11 +18,11 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     
     var cityName: String?
     
-    var judfWifi: Bool?
+    var judfWifi: Int?
     
-    var judgSocket: Bool?
+    var judgSocket: Int?
     
-    var judeStandingTime: Bool?
+    var judeStandingWork: Int?
     
     var judgLimited: Int?
     
@@ -61,7 +61,7 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.brown]
         let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.brown]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
-        navigationController?.hidesBarsOnSwipe = true
+        navigationController?.hidesBarsOnSwipe = false
     }
     
     func showLoadingView(){
@@ -137,25 +137,31 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func get3(){
+        
         CallAPI.callApi(city: cityName!, call: {(theCall) in
 //            self.cafeShop = []
             DispatchQueue.main.async {
                 self.cafeShop = theCall
-                if self.judfWifi == false {
-                    self.cafeShop = self.cafeShop.filter({$0.wifi == 0})
-                } else {
+                
+                
+                if self.judfWifi == 0 {
                     self.cafeShop = self.cafeShop.filter({$0.wifi != 0})
+                } else if self.judfWifi == 2 {
+                    self.cafeShop = self.cafeShop.filter({$0.wifi == 0})
                 }
-                if self.judgSocket == false {
-                    self.cafeShop = self.cafeShop.filter({$0.socket == "no"})
-                } else {
+                
+                if self.judgSocket == 0 {
                     self.cafeShop = self.cafeShop.filter({$0.socket == "yes"})
+                } else if self.judgSocket == 2 {
+                    self.cafeShop = self.cafeShop.filter({$0.socket == "no"})
                 }
-                if self.judeStandingTime == false {
-                    self.cafeShop = self.cafeShop.filter({$0.standing_desk == "no"})
-                } else {
+                
+                if self.judeStandingWork == 0 {
                     self.cafeShop = self.cafeShop.filter({$0.standing_desk == "yes"})
+                } else if self.judeStandingWork == 1 {
+                    self.cafeShop = self.cafeShop.filter({$0.standing_desk == "no"})
                 }
+                
                 if self.judgLimited == 0 {
                     self.cafeShop = self.cafeShop.filter({$0.limited_time == "no"})
                 } else if self.judgLimited == 2 {
@@ -163,9 +169,9 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
                 }
                 self.cityName = ""
                 self.sendcondition = false
-                self.judfWifi = false
-                self.judgSocket = false
-                self.judeStandingTime = false
+                self.judfWifi = 1
+                self.judgSocket = 1
+                self.judeStandingWork = 1
                 self.judgLimited = 1
                 
                 self.tableView.reloadData()
@@ -183,11 +189,11 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
             
             if cityName != "" {
                 filter()
-            } else if judfWifi == true {
+            } else if judfWifi != 1 {
                 filter()
-            } else if judgSocket == true {
+            } else if judgSocket != 1 {
                 filter()
-            } else if judeStandingTime == true {
+            } else if judeStandingWork != 1 {
                 filter()
             } else if judgLimited != 1 {
                 filter()
@@ -217,6 +223,7 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
         search?.searchBar.barTintColor = .white
         search?.searchBar.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
         search?.searchBar.searchBarStyle = .default
+        search?.searchBar.placeholder = "搜尋店名、地址"
         definesPresentationContext = true
     }
     
@@ -310,6 +317,18 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         judgCondition()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if UserDefaults.standard.bool(forKey: "hasViewedWalkthrough") {
+            return
+        }
+        
+        let storyboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        if let walkthroughViewController = storyboard.instantiateViewController(withIdentifier: "WalkthroughViewController") as? WalkthoughViewController {
+            present(walkthroughViewController, animated: true, completion: nil)
+        }
     }
     
     

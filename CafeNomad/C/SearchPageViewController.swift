@@ -10,6 +10,7 @@ import UIKit
 
 extension UIView {
     
+    
     @IBInspectable var cornerRadius: CGFloat {
         get {
             return layer.cornerRadius
@@ -41,45 +42,24 @@ class SearchPageViewController: UIViewController , UIPickerViewDelegate, UIPicke
     
     var judgCity = ""
     
-    var judgWifi = false
+    var judgWifi = 1
     
-    var judgSocket = false
+    var judgSocket = 1
     
-    var judgStandingWork = false
+    var judgStandingWork = 1
     
     var judeLimitedTime = 1
     
     var judgStart = false
     
-    @IBOutlet var wifiSwitch: UISwitch!
-    @IBOutlet var sockerSwitch: UISwitch!
-    @IBOutlet var standingWorkSwitch: UISwitch!
+    @IBOutlet var wifiSegmentControl: UISegmentedControl!
+    @IBOutlet var sockSegmentControl: UISegmentedControl!
+    @IBOutlet var standingWorkSegmentControl: UISegmentedControl!
     @IBOutlet var limitTimeSegment: UISegmentedControl!
     @IBOutlet var cityTextField: UITextField!
     
-    @IBAction func wifiSwitchAction(_ sender: UISwitch) {
-        if wifiSwitch.isOn {
-            judgWifi = true
-        } else {
-            judgWifi = false
-        }
-    }
     
-    @IBAction func socketSwitchAcion(_ sender: UISwitch) {
-        if sockerSwitch.isOn {
-            judgSocket = true
-        } else {
-            judgSocket = false
-        }
-    }
     
-    @IBAction func standingWorkSwitchAction(_ sender: UISwitch) {
-        if standingWorkSwitch.isOn {
-            judgStandingWork = true
-        } else {
-            judgStandingWork = false
-        }
-    }
     
     @IBAction func limitedTimeSegmentControl(_ sender: UISegmentedControl) {
         judeLimitedTime = limitTimeSegment.selectedSegmentIndex
@@ -107,9 +87,9 @@ class SearchPageViewController: UIViewController , UIPickerViewDelegate, UIPicke
         
         super.viewDidLoad()
         setPickerView()
-        wifiSwitch.isOn = false
-        sockerSwitch.isOn = false
-        standingWorkSwitch.isOn = false
+        wifiSegmentControl.selectedSegmentIndex = 1
+        sockSegmentControl.selectedSegmentIndex = 1
+        standingWorkSegmentControl.selectedSegmentIndex = 1
         limitTimeSegment.selectedSegmentIndex = 1
         
         
@@ -141,7 +121,7 @@ class SearchPageViewController: UIViewController , UIPickerViewDelegate, UIPicke
             hpVC?.cityName = judgCity
             hpVC?.judfWifi = judgWifi
             hpVC?.judgSocket = judgSocket
-            hpVC?.judeStandingTime = judgStandingWork
+            hpVC?.judeStandingWork = judgStandingWork
             hpVC?.judgLimited = judeLimitedTime
             hpVC?.sendcondition = true
         }

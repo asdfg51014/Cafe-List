@@ -14,6 +14,7 @@ class ClusterAnnotationView: MKAnnotationView {
         super.init(annotation: annotation, reuseIdentifier: reuseIdentifier)
 //        displayPriority = .defaultHigh
         collisionMode = .circle
+        canShowCallout = false
         centerOffset = CGPoint(x: 0.0, y: -10.0)
     }
     
@@ -28,8 +29,8 @@ class ClusterAnnotationView: MKAnnotationView {
             let cafeShopCount = custer.memberAnnotations.count
             
             image = drawCafeShop(count: cafeShopCount)
-            
             displayPriority = .defaultLow
+            canShowCallout = false
         }
         
     }
@@ -40,15 +41,15 @@ class ClusterAnnotationView: MKAnnotationView {
     
     private func drawRatio(_ fraction: Int, whole: Int) -> UIImage {
         
-        let cafeShop = UIGraphicsImageRenderer(size: CGSize(width: 40.0, height: 40.0))
+        let cafeShop = UIGraphicsImageRenderer(size: CGSize(width: 30.0, height: 30.0))
         
         return cafeShop.image { _ in
             UIColor(red: 194/255, green: 147/255, blue: 88/255, alpha: 1).setFill()
-            UIBezierPath(ovalIn: CGRect(x: 0.0, y: 0.0, width: 40.0, height: 40.0)).fill()
-            let attributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20.0)]
+            UIBezierPath(ovalIn: CGRect(x: 0.0, y: 0.0, width: 30.0, height: 30.0)).fill()
+            let attributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17.0)]
             let text = "\(whole)"
             let size = text.size(withAttributes: attributes)
-            let rect = CGRect(x: 20 - size.width / 2, y: 20 - size.height / 2, width: size.width, height: size.height)
+            let rect = CGRect(x: 15 - size.width / 2, y: 15 - size.height / 2, width: size.width, height: size.height)
             text.draw(in: rect, withAttributes: attributes)
             
         }

@@ -23,6 +23,7 @@ class CafeAnnotationView: MKMarkerAnnotationView {
         markerTintColor = UIColor(red: 194/255, green: 147/255, blue: 88/255, alpha: 1)
         glyphImage = UIImage(named: "mapIcon20")
         selectedGlyphImage = UIImage(named: "mapIcon40")
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

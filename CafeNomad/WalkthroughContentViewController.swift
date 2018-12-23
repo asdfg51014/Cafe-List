@@ -8,23 +8,39 @@
 
 import UIKit
 
-class WalkthroughContentViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
+class WalkthroughContentViewController: UIViewController  {
+    
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    var index = 0
+    
+    var heading = ""
+    
+    var subHeading = ""
+    
+    var imageFile = ""
+    
+    @IBOutlet var contentImage: UIImageView!
+    
+    @IBOutlet var headingLabel: UILabel! {
+        didSet {
+            headingLabel.numberOfLines = 0
+        }
     }
-    */
-
+    
+    @IBOutlet var subheadingLabel: UILabel! {
+        didSet {
+            subheadingLabel.numberOfLines = 0
+        }
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        headingLabel.text = heading
+        subheadingLabel.text = subHeading
+        contentImage.image = UIImage(named: imageFile)
+        
+    }
+    
 }

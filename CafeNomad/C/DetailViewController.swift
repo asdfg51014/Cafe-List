@@ -59,24 +59,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, NSFetchedResult
     
     var viewContext: NSManagedObjectContext!
     
-    func fetchRequestCafeList() {
-        let fetchRequest: NSFetchRequest<CafeListMO> = CafeListMO.fetchRequest()
-        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
-        fetchRequest.sortDescriptors = [sortDescriptor]
-        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-            let context = appDelegate.persistentContainer.viewContext
-            fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-            fetchResultController.delegate = self
-            do {
-                try! fetchResultController.performFetch()
-                if let fetchedObjects = fetchResultController.fetchedObjects {
-                    cafeList = fetchedObjects
-                }
-            } catch {
-                print(error)
-            }
-        }
-    }
+    
     
     @IBOutlet var shopName: UILabel!
     @IBOutlet var shopAddress: UILabel!
@@ -100,6 +83,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, NSFetchedResult
         let url = URL(string: detailUrl!)
         let safariController = SFSafariViewController(url: url!)
         present(safariController, animated:  true, completion:  nil)
+        print(detailUrl!)
     }
     
     @IBAction func shareButton(_ sender: UIBarButtonItem) {
@@ -117,7 +101,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate, NSFetchedResult
         print("adjustmentIsOn: \(adjustmentSaveIsOn)")
         adjustmentSaveIsOn ? (saveButton.setImage(UIImage(named: saveImage[0]), for: .normal)) : (saveButton.setImage(UIImage(named: saveImage[1]), for: .normal))
         adjustmentSaveIsOn ? (save = true) : (save = false)
-        print("save: \(save!)")
         judgeUserTapSaveButtonStatus()
     }
     //view did load to use
@@ -176,10 +159,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate, NSFetchedResult
         }
     }
     
-
-
-
-
     func saveDetailToCoreData(){
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
             cafeListMo = CafeListMO(context: appDelegate.persistentContainer.viewContext)
@@ -195,6 +174,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, NSFetchedResult
             cafeListMo.standingWork = detailStandingDesk!
             cafeListMo.latitude = detailLatitude
             cafeListMo.longitude = detailLongitude
+            cafeListMo.url = detailUrl
             appDelegate.saveContext()
             print("Save \(detailName!)")
         }
@@ -297,10 +277,13 @@ class DetailViewController: UIViewController, MKMapViewDelegate, NSFetchedResult
         self.mapView.setRegion(region, animated: false)
     }
     
-    
     func initSet(){
         if detailUrl == "" {
             safariButton.isHidden = true
+        } else if detailUrl == nil {
+            print("detailUrl = nil")
+        } else {
+            safariButton.isHidden = false
         }
         shopName.adjustsFontSizeToFitWidth = true
         shopName.text = detailName
@@ -313,6 +296,25 @@ class DetailViewController: UIViewController, MKMapViewDelegate, NSFetchedResult
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         return CafeAnnotationView(annotation: annotation as! MKAnnotation, reuseIdentifier: CafeAnnotationView.ReuseID)
+    }
+    
+    func fetchRequestCafeList() {
+        let fetchRequest: NSFetchRequest<CafeListMO> = CafeListMO.fetchRequest()
+        let sortDescriptor = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
+            let context = appDelegate.persistentContainer.viewContext
+            fetchResultController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+            fetchResultController.delegate = self
+            do {
+                try! fetchResultController.performFetch()
+                if let fetchedObjects = fetchResultController.fetchedObjects {
+                    cafeList = fetchedObjects
+                }
+            } catch {
+                print(error)
+            }
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -104,7 +104,7 @@ class SaveTableViewController: UITableViewController, NSFetchedResultsController
         if segue.identifier == "SendDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let sendSegue = segue.destination as! DetailViewController
-                
+                print(cafeList[indexPath.row].url)
                 sendSegue.detailName = cafeList[indexPath.row].name
                 sendSegue.detailAddress = cafeList[indexPath.row].address
                 sendSegue.detailWifi = cafeList[indexPath.row].wifi
