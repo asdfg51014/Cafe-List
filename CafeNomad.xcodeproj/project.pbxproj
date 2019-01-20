@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2A11981F21F48F340021966E /* GetDataFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A11981E21F48F340021966E /* GetDataFile.swift */; };
 		2A26E253218EF8E8006AC1FE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26E252218EF8E8006AC1FE /* MapViewController.swift */; };
 		2A26E25521913098006AC1FE /* CafeAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26E25421913098006AC1FE /* CafeAnnotationView.swift */; };
 		2A26E25721913974006AC1FE /* ClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26E25621913974006AC1FE /* ClusterAnnotationView.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A11981E21F48F340021966E /* GetDataFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDataFile.swift; sourceTree = "<group>"; };
 		2A26E252218EF8E8006AC1FE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2A26E25421913098006AC1FE /* CafeAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeAnnotationView.swift; sourceTree = "<group>"; };
 		2A26E25621913974006AC1FE /* ClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterAnnotationView.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				2A96EA69217EB355006634C6 /* APIDataModel.swift */,
 				2AE2521E2189B98B0041065F /* CallAPI2.swift */,
 				2A96EA6B217EB9C6006634C6 /* CallAPI.swift */,
+				2A11981E21F48F340021966E /* GetDataFile.swift */,
 			);
 			path = M;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				2A81F949218BF4E5007DFD28 /* SearchPageViewController.swift in Sources */,
 				2AE2521F2189B98B0041065F /* CallAPI2.swift in Sources */,
 				2A7F842D2181ABDF001BF493 /* MoreTableViewCell.swift in Sources */,
+				2A11981F21F48F340021966E /* GetDataFile.swift in Sources */,
 				2AE2524C218B1A5D0041065F /* AboutCell0TableViewCell.swift in Sources */,
 				2A51A619219D88FB0024D086 /* SaveTableViewController.swift in Sources */,
 				2A51A617219D88EA0024D086 /* SaveTableViewCell.swift in Sources */,

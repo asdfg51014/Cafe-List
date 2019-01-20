@@ -37,7 +37,7 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBAction func resetAreaButton(_ sender: UIBarButtonItem) {
         showLoadingView()
         resetCondition = true
-        receiveTaiwanCafeResponse()
+//        receiveTaiwanCafeResponse()
     }
     
     
@@ -71,49 +71,52 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
         }, completion: nil)
         activityIndicator.stopAnimating()
     }
-
     
-    func get(){
-        CallAPI.callApi(city: cityName!, call: {(theCall) in
+    func getData(){
+        GetData.getData { (callBack) in
             DispatchQueue.main.async {
-                self.cafeShopArray = theCall
+                self.cafeShopArray = callBack
                 self.tableView.reloadData()
-                if self.cafeShopArray.count == 0 {
-                    self.tableView.backgroundView?.isHidden = false
-                } else {
-                    self.tableView.backgroundView?.isHidden = true
+                self.cafeShopArray.count == 0 ?  (self.tableView.backgroundView?.isHidden = false) : (self.tableView.backgroundView?.isHidden = true)
+                if let mapViewController = self.tabBarController?.viewControllers?[1] as? MapViewController {
+                    let pointAnnotation = MKPointAnnotation()
+                    callBack.forEach({ (points) in
+                        pointAnnotation.coordinate = CLLocationCoordinate2DMake(Double(points.latitude)!, Double(points.longitude)!)
+                        pointAnnotation.title = points.name
+                        mapViewController.mapView.addAnnotation(pointAnnotation)
+                    })
                 }
             }
-        })
+        }
     }
     
-    func receiveTaiwanCafeResponse(){
-        CallAPI2.callApi(call: {(theCall) in
-            DispatchQueue.main.async {
-                self.cafeShopArray = theCall
-                if self.resetCondition == false {
-                    if let mapViewController = self.tabBarController?.viewControllers?[1] as? MapViewController {
-                        mapViewController.points = []
-                        mapViewController.points = theCall
-                        for point in theCall {
-                            let ann = MKPointAnnotation()
-                            ann.coordinate = CLLocationCoordinate2DMake(Double(point.latitude)!, Double(point.longitude)!)
-                            ann.title = point.name
-                            mapViewController.mapView.addAnnotation(ann)
-                        }
-                        self.resetCondition = false
-                    }
-                }
-                self.hiddenLoadingView()
-                self.tableView.reloadData()
-                if self.cafeShopArray.count == 0 {
-                    self.tableView.backgroundView?.isHidden = false
-                } else {
-                    self.tableView.backgroundView?.isHidden = true
-                }
-            }
-        })
-    }
+//    func receiveTaiwanCafeResponse(){
+//        CallAPI2.callApi(call: {(theCall) in
+//            DispatchQueue.main.async {
+//                self.cafeShopArray = theCall
+//                if self.resetCondition == false {
+//                    if let mapViewController = self.tabBarController?.viewControllers?[1] as? MapViewController {
+//                        mapViewController.points = []
+//                        mapViewController.points = theCall
+//                        for point in theCall {
+//                            let ann = MKPointAnnotation()
+//                            ann.coordinate = CLLocationCoordinate2DMake(Double(point.latitude)!, Double(point.longitude)!)
+//                            ann.title = point.name
+//                            mapViewController.mapView.addAnnotation(ann)
+//                        }
+//                        self.resetCondition = false
+//                    }
+//                }
+//                self.hiddenLoadingView()
+//                self.tableView.reloadData()
+//                if self.cafeShopArray.count == 0 {
+//                    self.tableView.backgroundView?.isHidden = false
+//                } else {
+//                    self.tableView.backgroundView?.isHidden = true
+//                }
+//            }
+//        })
+//    }
     
     // recive response and filter
     func receiveAndFilter(){
@@ -278,7 +281,8 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
         settingSearchController()
         settingNavigationBar()
         showLoadingView()
-        receiveTaiwanCafeResponse()
+        getData()
+//        receiveTaiwanCafeResponse()
         self.tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .none
         tabBarController?.viewControllers![1].loadViewIfNeeded()

@@ -2,7 +2,7 @@
 
 import Foundation
 
-struct CafeAPI: Decodable {
+struct CafeAPI: Codable {
     let id: String
     let name: String
     let city: String
