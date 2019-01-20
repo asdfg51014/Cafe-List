@@ -117,7 +117,7 @@ class SearchPageViewController: UIViewController , UIPickerViewDelegate, UIPicke
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "backFromSearch" {
-            let hpVC = segue.destination as? HomePageViewController
+            let hpVC = segue.destination as? HomeViewController
             hpVC?.cityName = judgCity
             hpVC?.judfWifi = judgWifi
             hpVC?.judgSocket = judgSocket

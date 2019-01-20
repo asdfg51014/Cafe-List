@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A11981F21F48F340021966E /* GetDataFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A11981E21F48F340021966E /* GetDataFile.swift */; };
+		2A11982221F49CC30021966E /* HomerViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A11982121F49CC30021966E /* HomerViewControllerExtensions.swift */; };
 		2A26E253218EF8E8006AC1FE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26E252218EF8E8006AC1FE /* MapViewController.swift */; };
 		2A26E25521913098006AC1FE /* CafeAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26E25421913098006AC1FE /* CafeAnnotationView.swift */; };
 		2A26E25721913974006AC1FE /* ClusterAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A26E25621913974006AC1FE /* ClusterAnnotationView.swift */; };
@@ -32,7 +33,7 @@
 		2AD5A86821AD72A000D954F3 /* WalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5A86721AD72A000D954F3 /* WalkthroughPageViewController.swift */; };
 		2AD5A86A21AD78D500D954F3 /* WalkthoughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD5A86921AD78D500D954F3 /* WalkthoughViewController.swift */; };
 		2AE2521F2189B98B0041065F /* CallAPI2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE2521E2189B98B0041065F /* CallAPI2.swift */; };
-		2AE25242218AC2990041065F /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE25241218AC2990041065F /* HomePageViewController.swift */; };
+		2AE25242218AC2990041065F /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE25241218AC2990041065F /* HomeViewController.swift */; };
 		2AE25244218AC6550041065F /* HomePageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE25243218AC6550041065F /* HomePageTableViewCell.swift */; };
 		2AE2524A218AE9EA0041065F /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE25249218AE9EA0041065F /* AboutViewController.swift */; };
 		2AE2524C218B1A5D0041065F /* AboutCell0TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AE2524B218B1A5D0041065F /* AboutCell0TableViewCell.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		2A11981E21F48F340021966E /* GetDataFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDataFile.swift; sourceTree = "<group>"; };
+		2A11982121F49CC30021966E /* HomerViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomerViewControllerExtensions.swift; sourceTree = "<group>"; };
 		2A26E252218EF8E8006AC1FE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		2A26E25421913098006AC1FE /* CafeAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeAnnotationView.swift; sourceTree = "<group>"; };
 		2A26E25621913974006AC1FE /* ClusterAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterAnnotationView.swift; sourceTree = "<group>"; };
@@ -67,7 +69,7 @@
 		2AD5A86721AD72A000D954F3 /* WalkthroughPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthroughPageViewController.swift; sourceTree = "<group>"; };
 		2AD5A86921AD78D500D954F3 /* WalkthoughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkthoughViewController.swift; sourceTree = "<group>"; };
 		2AE2521E2189B98B0041065F /* CallAPI2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallAPI2.swift; sourceTree = "<group>"; };
-		2AE25241218AC2990041065F /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		2AE25241218AC2990041065F /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2AE25243218AC6550041065F /* HomePageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageTableViewCell.swift; sourceTree = "<group>"; };
 		2AE25249218AE9EA0041065F /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		2AE2524B218B1A5D0041065F /* AboutCell0TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCell0TableViewCell.swift; sourceTree = "<group>"; };
@@ -85,6 +87,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A11982021F49C680021966E /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				2AE25241218AC2990041065F /* HomeViewController.swift */,
+				2AE25243218AC6550041065F /* HomePageTableViewCell.swift */,
+				2A11982121F49CC30021966E /* HomerViewControllerExtensions.swift */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
 		2A81F94B218ED80E007DFD28 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +133,7 @@
 		2A96EA53217EB2C7006634C6 /* CafeNomad */ = {
 			isa = PBXGroup;
 			children = (
+				2A11982021F49C680021966E /* HomeViewController */,
 				2A96EA54217EB2C7006634C6 /* AppDelegate.swift */,
 				2AD5A86321AD314A00D954F3 /* Onboarding.storyboard */,
 				2A96EA58217EB2C7006634C6 /* Main.storyboard */,
@@ -150,7 +163,6 @@
 		2AE25245218AE96D0041065F /* C */ = {
 			isa = PBXGroup;
 			children = (
-				2AE25241218AC2990041065F /* HomePageViewController.swift */,
 				2A81F948218BF4E5007DFD28 /* SearchPageViewController.swift */,
 				2A96EA70217EEACF006634C6 /* DetailViewController.swift */,
 				2A9A17962192FB2D00B53CAD /* DetailMapViewController.swift */,
@@ -169,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				2A51A616219D88EA0024D086 /* SaveTableViewCell.swift */,
-				2AE25243218AC6550041065F /* HomePageTableViewCell.swift */,
 				2A7F842C2181ABDF001BF493 /* MoreTableViewCell.swift */,
 				2AE2524B218B1A5D0041065F /* AboutCell0TableViewCell.swift */,
 				2AE2524D218B1A6D0041065F /* AboutCell1TableViewCell.swift */,
@@ -254,12 +265,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A96EA5D217EB2C7006634C6 /* CafeNomad.xcdatamodeld in Sources */,
+				2A11982221F49CC30021966E /* HomerViewControllerExtensions.swift in Sources */,
 				2A96EA6C217EB9C6006634C6 /* CallAPI.swift in Sources */,
 				2A96EA6A217EB355006634C6 /* APIDataModel.swift in Sources */,
 				2A26E25721913974006AC1FE /* ClusterAnnotationView.swift in Sources */,
 				2AD5A86621AD449C00D954F3 /* WalkthroughContentViewController.swift in Sources */,
 				2AD5A86A21AD78D500D954F3 /* WalkthoughViewController.swift in Sources */,
-				2AE25242218AC2990041065F /* HomePageViewController.swift in Sources */,
+				2AE25242218AC2990041065F /* HomeViewController.swift in Sources */,
 				2AE25244218AC6550041065F /* HomePageTableViewCell.swift in Sources */,
 				2A96EA55217EB2C7006634C6 /* AppDelegate.swift in Sources */,
 				2AE2524A218AE9EA0041065F /* AboutViewController.swift in Sources */,
