@@ -41,7 +41,6 @@ class HomeViewController: UIViewController, UITabBarDelegate {
     }
     
     //MARK: functions
-    
     func getData(){
         GetData.getData { (callBack) in
             DispatchQueue.main.async {
@@ -60,9 +59,6 @@ class HomeViewController: UIViewController, UITabBarDelegate {
             }
         }
     }
-    
-
-    
     
     // recive response and filter
     func receiveAndFilter(){
@@ -135,19 +131,8 @@ class HomeViewController: UIViewController, UITabBarDelegate {
             if let indexPath = tableView.indexPathForSelectedRow {
                 let sendSegue = segue.destination as! DetailViewController
                 
-                sendSegue.detailName = ((search?.isActive)!) ? searchResultArray[indexPath.row].name : cafeShopArray[indexPath.row].name
-                sendSegue.detailAddress = ((search?.isActive)!) ? searchResultArray[indexPath.row].address : cafeShopArray[indexPath.row].address
-                sendSegue.detailWifi = ((search?.isActive)!) ? searchResultArray[indexPath.row].wifi : cafeShopArray[indexPath.row].wifi
-                sendSegue.detailSeat = ((search?.isActive)!) ? searchResultArray[indexPath.row].seat : cafeShopArray[indexPath.row].seat
-                sendSegue.detailQuite = ((search?.isActive)!) ? searchResultArray[indexPath.row].quiet : cafeShopArray[indexPath.row].quiet
-                sendSegue.detailTasty = ((search?.isActive)!) ? searchResultArray[indexPath.row].tasty : cafeShopArray[indexPath.row].tasty
-                sendSegue.detailMusic = ((search?.isActive)!) ? searchResultArray[indexPath.row].music : cafeShopArray[indexPath.row].music
-                sendSegue.detailSocket = ((search?.isActive)!) ? searchResultArray[indexPath.row].name : cafeShopArray[indexPath.row].socket
-                sendSegue.detailStandingDesk = ((search?.isActive)!) ? searchResultArray[indexPath.row].standing_desk : cafeShopArray[indexPath.row].standing_desk
-                sendSegue.detailLimitedTiime = ((search?.isActive)!) ? searchResultArray[indexPath.row].limited_time : cafeShopArray[indexPath.row].limited_time
-                sendSegue.detailUrl = ((search?.isActive)!) ? searchResultArray[indexPath.row].url : cafeShopArray[indexPath.row].url
-                sendSegue.detailLatitude = ((search?.isActive)!) ? searchResultArray[indexPath.row].latitude : cafeShopArray[indexPath.row].latitude
-                sendSegue.detailLongitude = ((search?.isActive)!) ? searchResultArray[indexPath.row].longitude : cafeShopArray[indexPath.row].longitude
+                sendSegue.detail = [((search?.isActive)!) ? searchResultArray[indexPath.row] : cafeShopArray[indexPath.row]]
+                
             }
         }
     }

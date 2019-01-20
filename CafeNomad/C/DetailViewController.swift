@@ -13,32 +13,6 @@ import CoreData
 
 class DetailViewController: UIViewController, MKMapViewDelegate, NSFetchedResultsControllerDelegate {
     
-    var detailName: String?
-    
-    var detailAddress: String?
-    
-    var detailWifi: Double?
-    
-    var detailQuite: Float?
-    
-    var detailSeat: Double?
-    
-    var detailTasty: Float?
-    
-    var detailMusic: Float?
-    
-    var detailLimitedTiime: String?
-    
-    var detailSocket: String?
-    
-    var detailStandingDesk: String?
-    
-    var detailUrl: String?
-    
-    var detailLatitude: String?
-    
-    var detailLongitude: String?
-    
     var starsImage = ["star1", "star2", "star3", "star4", "star5", "star6", "star7", "star8", "star9", "star10", "star11"]
     
     var number: Int?
@@ -46,6 +20,8 @@ class DetailViewController: UIViewController, MKMapViewDelegate, NSFetchedResult
     var cafeListMo: CafeListMO!
     
     var cafeList: [CafeListMO] = []
+    
+    var detail = [CafeAPI]()
     
     var saveImage = ["checkOn", "checkOff"]
     
@@ -78,18 +54,18 @@ class DetailViewController: UIViewController, MKMapViewDelegate, NSFetchedResult
     @IBOutlet var safariButton: UIButton!
     
     @IBAction func turnSafariPage(_ sender: UIButton) {
-        let url = URL(string: detailUrl!)
+        let url = URL(string: detail[0].url)
         let safariController = SFSafariViewController(url: url!)
         present(safariController, animated:  true, completion:  nil)
-        print(detailUrl!)
+        print(detail[0].url)
     }
     
     @IBAction func shareButton(_ sender: UIBarButtonItem) {
         let activityVC: UIActivityViewController
-        if detailUrl != "" {
-            activityVC = UIActivityViewController(activityItems: [detailName, detailAddress, detailUrl], applicationActivities: nil)
+        if detail[0].url != "" {
+            activityVC = UIActivityViewController(activityItems: [detail[0].name, detail[0].address, detail[0].url], applicationActivities: nil)
         } else {
-            activityVC = UIActivityViewController(activityItems: [detailName, detailAddress], applicationActivities: nil)
+            activityVC = UIActivityViewController(activityItems: [detail[0].name, detail[0].address], applicationActivities: nil)
         }
         self.present(activityVC, animated: true, completion: nil)
     }
@@ -104,7 +80,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, NSFetchedResult
     //view did load to use
     func judgeCoreDataHaveSave(){
         for adjustment in cafeList {
-            if detailName == adjustment.name {
+            if detail[0].name == adjustment.name {
                 adjustmentSaveIsOn = true
                 saveButton.setImage(UIImage(named: "checkOn"), for: .normal)
                 break
@@ -113,7 +89,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, NSFetchedResult
                 saveButton.setImage(UIImage(named: "checkOff"), for: .normal)
             }
         }
-        adjustmentSaveIsOn ? print("\(detailName!) has in CoreData.") : print("\(detailName!) hasn't in CoreData")
+        adjustmentSaveIsOn ? print("\(detail[0].name) has in CoreData.") : print("\(detail[0].name) hasn't in CoreData")
     }
     
     func judgeUserTapSaveButtonStatus(){
@@ -124,7 +100,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, NSFetchedResult
                 saveDetailToCoreData()
             } else {}
             for adjustment in cafeList {
-                if detailName != adjustment.name {
+                if detail[0].name != adjustment.name {
                     saveDetailToCoreData()
                     break
                 }
@@ -135,7 +111,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, NSFetchedResult
             if cafeList.count != 0 {
                 print("123\(cafeList.count)")
                 for adjustment in cafeList {
-                    if detailName == adjustment.name {
+                    if detail[0].name == adjustment.name {
                         deleteDetailFormCoreData()
                         print("sccess")
                         break
@@ -160,21 +136,21 @@ class DetailViewController: UIViewController, MKMapViewDelegate, NSFetchedResult
     func saveDetailToCoreData(){
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
             cafeListMo = CafeListMO(context: appDelegate.persistentContainer.viewContext)
-            cafeListMo.name = detailName
-            cafeListMo.address = detailAddress
-            cafeListMo.wifi = detailWifi!
-            cafeListMo.seat = detailSeat!
-            cafeListMo.quiet = detailQuite!
-            cafeListMo.tasty = detailTasty!
-            cafeListMo.music = detailMusic!
-            cafeListMo.limitedTime = detailLimitedTiime
-            cafeListMo.socket = detailSocket
-            cafeListMo.standingWork = detailStandingDesk!
-            cafeListMo.latitude = detailLatitude
-            cafeListMo.longitude = detailLongitude
-            cafeListMo.url = detailUrl
+            cafeListMo.name = detail[0].name
+            cafeListMo.address = detail[0].address
+            cafeListMo.wifi = detail[0].wifi
+            cafeListMo.seat = detail[0].seat
+            cafeListMo.quiet = detail[0].quiet
+            cafeListMo.tasty = detail[0].tasty
+            cafeListMo.music = detail[0].music
+            cafeListMo.limitedTime = detail[0].limited_time
+            cafeListMo.socket = detail[0].socket
+            cafeListMo.standingWork = detail[0].standing_desk
+            cafeListMo.latitude = detail[0].latitude
+            cafeListMo.longitude = detail[0].longitude
+            cafeListMo.url = detail[0].url
             appDelegate.saveContext()
-            print("Save \(detailName!)")
+            print("Save \(detail[0].name)")
         }
     }
     
@@ -182,10 +158,10 @@ class DetailViewController: UIViewController, MKMapViewDelegate, NSFetchedResult
         if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
             let context = appDelegate.persistentContainer.viewContext
             for adjustment in cafeList {
-                if adjustment.name == detailName {
+                if adjustment.name == detail[0].name {
                     context.delete(adjustment)
                     appDelegate.saveContext()
-                    print("Delete \(detailName!)")
+                    print("Delete \(detail[0].name)")
                     break
                 }}}
     }
@@ -254,20 +230,20 @@ class DetailViewController: UIViewController, MKMapViewDelegate, NSFetchedResult
     }
     
     func judgSet(){
-        judge(p: wifiImage, n: detailWifi!)
-        judge(p: seatImage, n: detailSeat!)
-        judge(p: quietImage, n: Double(detailQuite!))
-        judge(p: tasty, n: Double(detailTasty!))
-        judge(p: musicImage, n: Double(detailMusic!))
-        judgeLimitLabel(detailLimitedTiime!)
-        judgeSocketLabel(detailSocket!)
-        judgeStandingWorkLabel(detailStandingDesk!)
+        judge(p: wifiImage, n: detail[0].wifi)
+        judge(p: seatImage, n: detail[0].seat)
+        judge(p: quietImage, n: Double(detail[0].quiet))
+        judge(p: tasty, n: Double(detail[0].tasty))
+        judge(p: musicImage, n: Double(detail[0].music))
+        judgeLimitLabel(detail[0].limited_time)
+        judgeSocketLabel(detail[0].socket)
+        judgeStandingWorkLabel(detail[0].standing_desk)
     }
     
     func cafeShopInMap(){
         let ann = MKPointAnnotation()
-        ann.coordinate = CLLocationCoordinate2D(latitude: Double(detailLatitude!)!, longitude: Double(detailLongitude!)!)
-        ann.title = detailName!
+        ann.coordinate = CLLocationCoordinate2D(latitude: Double(detail[0].latitude)!, longitude: Double(detail[0].longitude)!)
+        ann.title = detail[0].name
         mapView.addAnnotation(ann)
         mapView.setCenter(ann.coordinate, animated: true)
         let region = MKCoordinateRegion(center: ann.coordinate, latitudinalMeters: 350, longitudinalMeters: 350)
@@ -275,17 +251,17 @@ class DetailViewController: UIViewController, MKMapViewDelegate, NSFetchedResult
     }
     
     func initSet(){
-        if detailUrl == "" {
+        if detail[0].url == "" {
             safariButton.isHidden = true
-        } else if detailUrl == nil {
+        } else if detail[0].url == nil {
             print("detailUrl = nil")
         } else {
             safariButton.isHidden = false
         }
         shopName.adjustsFontSizeToFitWidth = true
-        shopName.text = detailName
+        shopName.text = detail[0].name
         shopAddress.adjustsFontSizeToFitWidth = true
-        shopAddress.text = detailAddress!
+        shopAddress.text = detail[0].address
         socketLabel.adjustsFontSizeToFitWidth = true
         standingWorkLabel.adjustsFontSizeToFitWidth = true
     }
@@ -316,9 +292,9 @@ class DetailViewController: UIViewController, MKMapViewDelegate, NSFetchedResult
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "DetailMapSegue" {
             let dmvc = segue.destination as! DetailMapViewController
-            dmvc.shopName = detailName
-            dmvc.latitude = Double(detailLatitude!)
-            dmvc.longitude = Double(detailLongitude!)
+            dmvc.shopName = detail[0].name
+            dmvc.latitude = Double(detail[0].latitude)
+            dmvc.longitude = Double(detail[0].longitude)
         }
     }
     

@@ -105,19 +105,22 @@ class SaveTableViewController: UITableViewController, NSFetchedResultsController
             if let indexPath = tableView.indexPathForSelectedRow {
                 let sendSegue = segue.destination as! DetailViewController
                 print(cafeList[indexPath.row].url)
-                sendSegue.detailName = cafeList[indexPath.row].name
-                sendSegue.detailAddress = cafeList[indexPath.row].address
-                sendSegue.detailWifi = cafeList[indexPath.row].wifi
-                sendSegue.detailSeat = cafeList[indexPath.row].seat
-                sendSegue.detailQuite = cafeList[indexPath.row].quiet
-                sendSegue.detailTasty = cafeList[indexPath.row].tasty
-                sendSegue.detailMusic = cafeList[indexPath.row].music
-                sendSegue.detailSocket = cafeList[indexPath.row].socket
-                sendSegue.detailStandingDesk = cafeList[indexPath.row].standingWork
-                sendSegue.detailLimitedTiime = cafeList[indexPath.row].limitedTime
-                sendSegue.detailUrl = cafeList[indexPath.row].url
-                sendSegue.detailLatitude = cafeList[indexPath.row].latitude
-                sendSegue.detailLongitude = cafeList[indexPath.row].longitude
+                
+//                sendSegue.detail = cafeList[indexPath.row]
+//                
+//                sendSegue.detailName = cafeList[indexPath.row].name
+//                sendSegue.detailAddress = cafeList[indexPath.row].address
+//                sendSegue.detailWifi = cafeList[indexPath.row].wifi
+//                sendSegue.detailSeat = cafeList[indexPath.row].seat
+//                sendSegue.detailQuite = cafeList[indexPath.row].quiet
+//                sendSegue.detailTasty = cafeList[indexPath.row].tasty
+//                sendSegue.detailMusic = cafeList[indexPath.row].music
+//                sendSegue.detailSocket = cafeList[indexPath.row].socket
+//                sendSegue.detailStandingDesk = cafeList[indexPath.row].standingWork
+//                sendSegue.detailLimitedTiime = cafeList[indexPath.row].limitedTime
+//                sendSegue.detailUrl = cafeList[indexPath.row].url
+//                sendSegue.detailLatitude = cafeList[indexPath.row].latitude
+//                sendSegue.detailLongitude = cafeList[indexPath.row].longitude
                 
             }
         }
