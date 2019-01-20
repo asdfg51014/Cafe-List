@@ -16,9 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     let whereAmI = CLLocationManager()
+    
+    var navigation = UINavigationController().navigationBar
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         let tabBarController = self.window?.rootViewController as! UITabBarController
+        
+        navigation.barTintColor = UIColor.white
+        navigation.backgroundColor = UIColor.lightGray
+        navigation.tintColor = UIColor.brown
+        navigation.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.brown]
+        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.brown]
+        navigation.titleTextAttributes = textAttributes
         
         tabBarController.tabBar.tintColor = .brown
         tabBarController.tabBar.barTintColor = .white

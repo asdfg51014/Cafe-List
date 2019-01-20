@@ -15,6 +15,7 @@ class HomeViewController: UIViewController, UITabBarDelegate {
     
     var cafeShopArray: [CafeAPI] = []
     var searchResultArray: [CafeAPI] = []
+    let fullScreenSize = UIScreen.main.bounds
     var cityName: String?
     var judfWifi: Int?
     var judgSocket: Int?
@@ -36,48 +37,17 @@ class HomeViewController: UIViewController, UITabBarDelegate {
     }
     
     @IBAction func resetAreaButton(_ sender: UIBarButtonItem) {
-        showLoadingView()
         resetCondition = true
-//        receiveTaiwanCafeResponse()
     }
-    
-    
     
     //MARK: functions
-    func settingNavigationBar() {
-        navigationController?.navigationBar.barTintColor = .white
-        navigationController?.navigationBar.backgroundColor = UIColor.lightGray
-        navigationController?.navigationBar.tintColor = .brown
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.brown]
-        let textAttributes = [NSAttributedString.Key.foregroundColor: UIColor.brown]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
-        navigationController?.hidesBarsOnSwipe = false
-    }
-    
-    func showLoadingView(){
-        let tabBarHeight = tabBarController?.tabBar.frame.height
-        let navigationBarHeight = navigationController?.navigationBar.frame.height
-        let statusBarHeight = UIApplication.shared.statusBarFrame.height
-        let minusHeight = tabBarHeight! + navigationBarHeight! + statusBarHeight
-        loadingView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-        loadingView.backgroundColor = UIColor(red: 67/255, green: 67/255, blue: 67/255, alpha: 0.3)
-//        loadingView.layer.zPosition = 2
-        view.addSubview(loadingView)
-        activityIndicator.startAnimating()
-    }
-    
-    func hiddenLoadingView(){
-        UIView.animate(withDuration: 0.5, delay: 0.2, options: .preferredFramesPerSecond30, animations: {
-            self.loadingView.alpha = 0
-        }, completion: nil)
-        activityIndicator.stopAnimating()
-    }
     
     func getData(){
         GetData.getData { (callBack) in
             DispatchQueue.main.async {
                 self.cafeShopArray = callBack
                 self.tableView.reloadData()
+                HomeViewControllerFunctionsFile.hideLoadingView(loadingView: self.loadingView)
                 self.cafeShopArray.count == 0 ?  (self.tableView.backgroundView?.isHidden = false) : (self.tableView.backgroundView?.isHidden = true)
                 if let mapViewController = self.tabBarController?.viewControllers?[1] as? MapViewController {
                     let pointAnnotation = MKPointAnnotation()
@@ -90,6 +60,9 @@ class HomeViewController: UIViewController, UITabBarDelegate {
             }
         }
     }
+    
+
+    
     
     // recive response and filter
     func receiveAndFilter(){
@@ -157,9 +130,6 @@ class HomeViewController: UIViewController, UITabBarDelegate {
         receiveAndFilter()
     }
     
-    
-    
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SendDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
@@ -185,10 +155,8 @@ class HomeViewController: UIViewController, UITabBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         settingSearchController()
-        settingNavigationBar()
-        showLoadingView()
+        HomeViewControllerFunctionsFile.showLoadingView(tabBarHeight: (tabBarController?.tabBar.frame.height)!, navigationBarHeight: (navigationController?.navigationBar.frame.height)!, fullScreenSize: fullScreenSize, loadingView: loadingView, superView: self.view)
         getData()
-//        receiveTaiwanCafeResponse()
         self.tableView.showsVerticalScrollIndicator = false
         tableView.separatorStyle = .none
         tabBarController?.viewControllers![1].loadViewIfNeeded()
